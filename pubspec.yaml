@@ -42,14 +42,15 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   assets:
-    - images/title_back.png
-    - images/icon_shop_info_edit.png
-    - images/icon_shop_info_delete.png
-    - images/icon_bg_credit_novip.png
-    - images/icon_bg_credit_vip.png
-    - images/iv_boy_user.png
-    - images/icon_credit_setting.png
-    - images/icon_bg_ranking.png
+    - assets/images/
+  #  - images/title_back.png
+  #  - images/icon_shop_info_edit.png
+  #  - images/icon_shop_info_delete.png
+  #  - images/icon_bg_credit_novip.png
+  #  - images/icon_bg_credit_vip.png
+  #  - images/iv_boy_user.png
+  #  - images/icon_credit_setting.png
+  #  - images/icon_bg_ranking.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

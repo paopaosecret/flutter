@@ -51,10 +51,10 @@ class _State extends State<ReduxPage> {
 //              ToastUtils.showToast("移动手指: x = ${event.position.dx}, y = ${event.position.dy}");
 //            }
 //          },
-//          onPointerUp: (PointerUpEvent event){
-//            bus.notify(EventAction.TEST_EVENT, "hello dart eventbus");
-////            ToastUtils.showToast("抬起手指: x = ${event.position.dx}, y = ${event.position.dy}");
-//          },
+          onPointerUp: (PointerUpEvent event){
+            bus.notify(EventAction.TEST_EVENT, "hello dart eventbus");
+//            ToastUtils.showToast("抬起手指: x = ${event.position.dx}, y = ${event.position.dy}");
+          },
         );
       },
     );

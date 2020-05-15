@@ -11,7 +11,7 @@ class TitleBar {
         title: _title(title),
       centerTitle: true,
       leading: new IconButton(
-          icon:  Image.asset("images/title_back.png",width:30,height:30),
+          icon:  Image.asset("assets/images/title_back.png",width:30,height:30),
           onPressed: onBackPressed ?? (){
             Navigator.of(context).pop();
           },

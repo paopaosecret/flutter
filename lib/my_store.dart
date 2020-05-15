@@ -262,7 +262,7 @@ class StoreState extends State<MyStore> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               pad(
-                  Image.asset("images/icon_shop_info_delete.png",
+                  Image.asset("assets/images/icon_shop_info_delete.png",
                       width: 15, height: 15),
                   t: 18),
               pad(
@@ -284,7 +284,7 @@ class StoreState extends State<MyStore> {
                   r: 20,
                   t: 15,
                   b: 15),
-                  pad(Image.asset("images/icon_shop_info_edit.png",
+                  pad(Image.asset("assets/images/icon_shop_info_edit.png",
                         width: 15, height: 15),t:18
                   ),
               pad(

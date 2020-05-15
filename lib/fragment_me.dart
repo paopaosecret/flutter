@@ -71,13 +71,13 @@ class _State extends State<FragmentMe> {
         alignment: AlignmentDirectional.topStart,
         children: <Widget>[
           SizedBox.expand(
-            child: Image.asset("images/icon_bg_credit_vip.png",
+            child: Image.asset("assets/images/icon_bg_credit_vip.png",
               fit: BoxFit.cover,),
           ),
           Positioned(
             left: 15,
             top: 47.5,
-            child: Image.asset("images/iv_boy_user.png",width:50,height:50),
+            child: Image.asset("assets/images/iv_boy_user.png",width:50,height:50),
           ),
           Positioned(
             left: 75,
@@ -145,7 +145,7 @@ class _State extends State<FragmentMe> {
             top: 36,
             right: 15,
             child: GestureDetector(
-              child: Image.asset("images/icon_credit_setting.png", width:22, height:22),
+              child: Image.asset("assets/images/icon_credit_setting.png", width:22, height:22),
               onTap: (){
                 ToastUtils.showToast("跳转设置页面");
 
@@ -181,13 +181,13 @@ class _State extends State<FragmentMe> {
         alignment: AlignmentDirectional.topStart,
         children: <Widget>[
           SizedBox.expand(
-            child: Image.asset("images/icon_bg_credit_novip.png",
+            child: Image.asset("assets/images/icon_bg_credit_novip.png",
               fit: BoxFit.cover,),
           ),
           Positioned(
             left: 15,
             top: 47.5,
-            child: Image.asset("images/iv_boy_user.png",width:50,height:50),
+            child: Image.asset("assets/images/iv_boy_user.png",width:50,height:50),
           ),
 
           Positioned(
@@ -228,7 +228,7 @@ class _State extends State<FragmentMe> {
             top: 36,
             right: 15,
             child: GestureDetector(
-              child: Image.asset("images/icon_credit_setting.png", width:22, height:22),
+              child: Image.asset("assets/images/icon_credit_setting.png", width:22, height:22),
               onTap: (){
                 ToastUtils.showToast("跳转设置页面");
               },
@@ -269,7 +269,7 @@ class _State extends State<FragmentMe> {
                   height: 68,
                   decoration: new BoxDecoration(
                     image: new DecorationImage(
-                      image: new AssetImage("images/icon_bg_ranking.png"),
+                      image: new AssetImage("assets/images/icon_bg_ranking.png"),
                     ),
                   ),
                 ),
