@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
               rightText: "提交",
               onRightPressed: (){
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ReduxPage()));
+                    MaterialPageRoute(builder: (context) => MyStore()));
                 ToastUtils.showToast("提交成功");
               }
             ),

@@ -23,7 +23,8 @@ package com.example.flutterstudy.note;
  * StoreConnector:一个可以获取 Store 的 Widget ，作用是响应 Store 发出的状态改变事件来重建 UI。
  *      当Reducer产生新的State，StoreConnector会接收到新的State并根据State去刷新UI
  *
- * Middleware:当Action发出之后，Reducer立即计算出State,这就是同步，Action发出之后，过一段时间再执行就是异步，如何让Reducer在异步结束之后再执行，这就是新的工具：中间件
+ * Middleware:当Action发出之后，Reducer立即计算出State,这就是同步，Action发出之后，过一段时间再执行就是异步，
+ * 如何让Reducer在异步结束之后再执行，这就是新的工具：中间件
  *
  * 为什么不在Reducer中处理异步？
  * （1）Reducer：纯函数，只承担计算 State 的功能，不合适承担其他功能，也承担不了，因为理论上，纯函数不能进行读写操作。

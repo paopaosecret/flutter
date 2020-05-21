@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterstudy/widget/title_bar.dart';
 import 'package:flutterstudy/widget/toast.dart';
 import 'ui_utils.dart';
 
@@ -100,21 +101,7 @@ class StoreState extends State<MyStore> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF3F3F3),
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          '我的店铺信息',
-          style: TextStyle(color: Colors.black87, fontSize: 20),
-        ),
-        centerTitle: true,
-        leading: new IconButton(
-            icon: Image.asset("images/title_back.png", width: 30, height: 30),
-            onPressed: () async {
-              ///使用路由表方式
-              Navigator.pop(context, "我是返回值1");
-            }),
-        backgroundColor: Color(0xFFFFFFFF),
-      ),
+      appBar: TitleBar().titleBar(context, '我的店铺信息'),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
