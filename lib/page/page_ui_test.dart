@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterstudy/my_store.dart';
-import 'package:flutterstudy/z_listview.dart';
+import 'package:flutterstudy/page/my_store.dart';
+import 'package:flutterstudy/page/z_listview.dart';
 
 class UITest extends StatelessWidget{
 

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterstudy/widget/title_bar.dart';
 import 'package:flutterstudy/widget/toast.dart';
-import 'ui_utils.dart';
+import '../utils/ui_utils.dart';
 
 class MyStore extends StatefulWidget {
   @override
@@ -22,6 +22,9 @@ class StoreState extends State<MyStore> {
 
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((duration){
+      ToastUtils.showToast("第一帧回调");
+    });
     dataList.clear();
     for (int i = 0; i < 5; i++) {
       ItemBean bean = new ItemBean();

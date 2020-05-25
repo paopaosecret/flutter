@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'marquee.dart';
-import 'ui_utils.dart';
+import 'package:flutterstudy/widget/marquee.dart';
+import '../utils/ui_utils.dart';
 
 class NewPage extends StatelessWidget {
   Widget _listItemBuilder(BuildContext context, int index){

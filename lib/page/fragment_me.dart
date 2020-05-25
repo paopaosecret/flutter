@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterstudy/widget/marquee.dart';
 import 'package:flutterstudy/widget/toast.dart';
-import 'marquee.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 ///首页-我的页面
 class FragmentMe extends StatefulWidget {
