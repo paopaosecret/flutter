@@ -11,7 +11,7 @@ void main() {
 //  testObject();
 //  testDynamic();
 //  initSet();
-//  bianList();
+  bianList();
 //  testSet();
 //  bianSet();
 //  bianMap();
