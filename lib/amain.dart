@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutterstudy/page/fragment_me.dart';
 import 'package:flutterstudy/page/page_sample.dart';
-import 'package:flutterstudy/page/page_shangji.dart';
 import 'package:flutterstudy/page/redux_page.dart';
 import 'package:flutterstudy/redux/app_reducer.dart';
 import 'package:flutterstudy/redux/middleware/add_middleware.dart';
-import 'package:flutterstudy/redux/middleware/shangji_middleware.dart';
 import 'package:flutterstudy/redux/reducer/app_reducer.dart';
 import 'package:flutterstudy/redux/state/app_state.dart';
 import 'package:flutterstudy/page/page_ui_test.dart';
@@ -40,15 +38,12 @@ void main(){
     final Store<AppState> _store = Store<AppState>(
       reducer,
       initialState: AppState.initState(),
-      middleware: [
-        AddMiddleware(),
-        ShangJiMiddleware(),
-      ],
+      middleware: [AddMiddleware()],
     );
     runApp(MyApp(store: _store));
   }, onError: (error, stackTrace) async {
     //异常处理
-   print("this is error ---$error");
+    print("this is error ---$error");
   });
 
 }
@@ -79,9 +74,9 @@ class _MyAppState extends State<MyApp> {
       ToastUtils.showToast(arg);
     });
     return StoreProvider<AppState>(
-        store: widget.store,
-        child: MaterialApp(
-          title: 'Flutte',
+      store: widget.store,
+      child: MaterialApp(
+        title: 'Flutte',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
@@ -94,47 +89,45 @@ class _MyAppState extends State<MyApp> {
           "fragment_me": (context) => new FragmentMe(),
           "redux_page":  (ctx) => new ReduxPage(),
           "problem_back":  (ctx) => new SimplePage(),
-          "shangji_page":  (ctx) => new ShangJiPage(),
         },
         home: Builder(
           builder: (context) => Scaffold(
             appBar: TitleBar().titleBar(context, '测试列表页',),
             body: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  GestureDetector(
-                      onTap: (){
-                        Future.delayed(Duration(seconds: 1))
-                            .then((e) => throw StateError('This is a Dart exception 异步.'));
-                      },
-                  child: Container(
-                      width: 100,
-                      height: 50,
-                      color: Color(0xFFF2F2F2),
-                      child: Text("测试异步"))),
-                  GestureDetector(
-                      onTap: (){
-                        throw StateError('This is a Dart exception 同步');
-                      },
-                      child: Container(
-                          width: 100,
-                          height: 50,
-                          color: Color(0xFFF2F2F2),
-                          child: Text("测试同步"))),
-                  buildItem(context, "我的实体店", "my_store", null),
-                  buildItem(context, "福利商城", "fragment_me", null),
-                  buildItem(context, "UI测试页面", "ui_test", null),
-                  buildItem(context, "reduxPage", "redux_page", null),
-                  buildItem(context, "布局测试", "new_page", "布局测试页面参数"),
-                  buildItem(context, "问题反馈页面", "problem_back", null),
-                  buildItem(context, "商机页面", "shangji_page", null),
-                ],
-              ),
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                GestureDetector(
+                    onTap: (){
+                      Future.delayed(Duration(seconds: 1))
+                          .then((e) => throw StateError('This is a Dart exception 异步.'));
+                    },
+                    child: Container(
+                        width: 100,
+                        height: 50,
+                        color: Color(0xFFF2F2F2),
+                        child: Text("测试异步"))),
+                GestureDetector(
+                    onTap: (){
+                      throw StateError('This is a Dart exception 同步');
+                    },
+                    child: Container(
+                        width: 100,
+                        height: 50,
+                        color: Color(0xFFF2F2F2),
+                        child: Text("测试同步"))),
+                buildItem(context, "我的实体店", "my_store", null),
+                buildItem(context, "福利商城", "fragment_me", null),
+                buildItem(context, "UI测试页面", "ui_test", null),
+                buildItem(context, "reduxPage", "redux_page", null),
+                buildItem(context, "布局测试", "new_page", "布局测试页面参数"),
+                buildItem(context, "问题反馈页面", "problem_back", null),
+              ],
             ),
           ),
         ),
-      );
+      ),
+    );
   }
 }
 

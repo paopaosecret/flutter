@@ -11,6 +11,7 @@ void main() {
 //  testObject();
 //  testDynamic();
 //  initSet();
+//  bianList();
 //  testSet();
 //  bianSet();
 //  bianMap();
@@ -19,8 +20,16 @@ void main() {
 //  Student student = new Student(110, "张三", 18);
 //  student._sid = 18000;
 
-  testWait();
+//  testWait();
+  testFuhao();
 }
+
+void testFuhao(){
+  Object obj;
+  Object obj1;
+  print(obj ?? obj1 ?? "obj和obj1都是空");
+}
+
 ///定义一个方法
 printInteger(int num){
   print("number is $num");
@@ -168,6 +177,8 @@ listMethod(){
 ///3.1.3、list遍历
 bianList() {
   List<String> list = ["one", "two"];
+
+  print(list.join(" "));
 
   //第一种遍历方式
   for (var i = 0; i < list.length; i++) {

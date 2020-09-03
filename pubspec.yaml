@@ -19,6 +19,8 @@ dependencies:
   flutter_redux: ^0.5.2
   #Json
   json_annotation: ^3.0.0
+  # 异常上报
+  flutter_bugly: ^0.2.7
 
 
 dev_dependencies:

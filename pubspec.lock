@@ -76,6 +76,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_bugly:
+    dependency: "direct main"
+    description:
+      name: flutter_bugly
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.2.8"
   flutter_redux:
     dependency: "direct main"
     description:

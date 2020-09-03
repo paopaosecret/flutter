@@ -9,16 +9,9 @@ import 'package:redux/redux.dart';
  * 返回
  * typedef State Reducer<State>(State state, dynamic action);
  */
-AppState reducer(AppState state, action){
-  //匹配Action
-  if(action is AddAction){           //第三步：将处理后的数据转换为可用的状态数据
-    return new AppState(
-          addInfoState: AddInfoReducer(state.addInfoState, action));
-  }
-  return state;
-}
 
-final AddInfoReducer = combineReducers<AddInfoState>([
+//TODO 第三步：将处理后的数据转换为可用的状态数据
+final addInfoReducer = combineReducers<AddInfoState>([
   TypedReducer<AddInfoState, AddAction>(_addOperator),
 ]);
 

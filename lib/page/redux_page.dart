@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutterstudy/channel/channel_platform.dart';
@@ -34,6 +36,9 @@ class _State extends State<ReduxPage> {
                 onTap: (){
                   MessageChannel.getBatteryLevel().then((result){
                     print(result);
+                    int a = Random().nextInt(100);
+                    ToastUtils.showToast("a = ${a}");
+                    StoreProvider.of<AppState>(context).dispatch(AddAction(a));  //第一步：发送一个时间到Redux
                   });
                 },
                 child: Text(
