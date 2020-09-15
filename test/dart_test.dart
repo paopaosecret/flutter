@@ -66,7 +66,7 @@ testNum(int a, int b){
 ///1.3、字符串类型：在Dart中支持单引号、双引号、三引号以及$字符串模板用法
 ///
 testStr(){
-  String name = 'Hello Dart!';//单引号
+  String _name = 'Hello Dart!';//单引号
   String title = "'Hello Dart!'";//双引号
   String description = """
           Hello Dart! Hello Dart!

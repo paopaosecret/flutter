@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutterstudy/page/fragment_me.dart';
+import 'package:flutterstudy/page/page_animation.dart';
 import 'package:flutterstudy/page/page_sample.dart';
 import 'package:flutterstudy/page/page_shangji.dart';
 import 'package:flutterstudy/page/redux_page.dart';
@@ -95,6 +96,7 @@ class _MyAppState extends State<MyApp> {
           "redux_page":  (ctx) => new ReduxPage(),
           "problem_back":  (ctx) => new SimplePage(),
           "shangji_page":  (ctx) => new ShangJiPage(),
+          "animation_page":  (ctx) => new AnimationPage(),
         },
         home: Builder(
           builder: (context) => Scaffold(
@@ -129,6 +131,7 @@ class _MyAppState extends State<MyApp> {
                   buildItem(context, "布局测试", "new_page", "布局测试页面参数"),
                   buildItem(context, "问题反馈页面", "problem_back", null),
                   buildItem(context, "商机页面", "shangji_page", null),
+                  buildItem(context, "动画页面", "animation_page", null),
                 ],
               ),
             ),

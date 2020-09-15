@@ -11,25 +11,28 @@ class UITest extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
         body:Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
           child: Column( //垂直布局
             mainAxisAlignment: MainAxisAlignment.start,  ///主轴方向对齐方式，Column主轴为垂直方向，ROW主轴为水平方向
             crossAxisAlignment: CrossAxisAlignment.start, ///纵轴方向对齐方式，Column纵轴为水平方向，ROW纵轴为垂直方向
             mainAxisSize: MainAxisSize.max,         //主轴方向尺寸
             children: <Widget>[
-              Text("文本框组件",
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(            //设置文本样式
-                      color: Colors.redAccent,   ///设置文字颜色
-                      fontSize: 16,              ///设置文字大小
+              Container(
+                child: Text("文本框组件纵轴方向对齐方式，Column纵轴为水平方向，ROW纵轴为垂直方向纵轴方向对齐方式，Column纵轴为水平方向，ROW纵轴为垂直方向",
+                    softWrap: true,
+//                  textAlign: TextAlign.center,
+//                  overflow: TextOverflow.ellipsis,
+                    style: TextStyle(            //设置文本样式
+                        color: Colors.redAccent,   ///设置文字颜色
+                        fontSize: 16,              ///设置文字大小
     //              height: 0.9,               ///该属性用于指定行高，但它并不是一个绝对值，而是一个因子，具体的行高等具体的行高等于fontSize*height。
-                      fontFamily: "Courier",     ///设置字体
-                      background: new Paint()    ///设置背景
-                        ..color=Colors.yellow,   ///..为级联操作符  为对象属性设置
-                      decoration:TextDecoration.lineThrough,     ///  文本画线  下划线  或者删除线
-                      decorationStyle: TextDecorationStyle.wavy  ///线条样式 画一条直线 solid,  画两条线double,画圆点虚线dotted, 画破折号虚线dashed, 画波浪线wavy
-                  )
+                        fontFamily: "Courier",     ///设置字体
+                        background: new Paint()    ///设置背景
+                          ..color=Colors.yellow,   ///..为级联操作符  为对象属性设置
+                        decoration:TextDecoration.lineThrough,     ///  文本画线  下划线  或者删除线
+                        decorationStyle: TextDecorationStyle.wavy  ///线条样式 画一条直线 solid,  画两条线double,画圆点虚线dotted, 画破折号虚线dashed, 画波浪线wavy
+                    )
+                ),
               ),
               Container(   ///测试：ListView
                 width: 360,
@@ -100,7 +103,10 @@ class UITest extends StatelessWidget{
                   padding: EdgeInsets.only(top: 0),   //设置吸顶
                   itemCount: 20,   //设置item数量
                   itemBuilder: (BuildContext context, int index) {
-                    return Text('Index$index', overflow: TextOverflow.ellipsis, style: TextStyle(  color: Colors.redAccent, fontSize: 16,));
+                    return Text('Index${index}Domestic life was never quite my styleDomestic life was never quite my styleDomestic life was never quite my style',
+                        softWrap: true,
+//                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(  color: Colors.redAccent, fontSize: 16,));
                   },
                   separatorBuilder: (BuildContext context, int index) {
                     return index%2==0?divider1:divider2;

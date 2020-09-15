@@ -21,6 +21,7 @@ dependencies:
   json_annotation: ^3.0.0
   # 异常上报
   flutter_bugly: ^0.2.7
+  webview_flutter: 0.3.21
 
 
 dev_dependencies:
