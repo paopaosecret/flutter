@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutterstudy/bean/simple_bean.dart';
 import 'package:flutterstudy/bean/test_bean.dart';
 
+import 'favorities_state.dart';
+
 //TODO 注意
 //TODO 1.Map转Json  使用jsonEncode(map)  返回Json串
 //TODO 2.Json转Map  使用jsonDecode(json) 返回Map对象
@@ -12,7 +14,8 @@ import 'package:flutterstudy/bean/test_bean.dart';
 void main(){
 //  testToJson();
 
-  testFromJson();
+//  testFromJson();
+  testShangJiJson();
 }
 
 void testToJson(){
@@ -41,4 +44,36 @@ void testFromJson(){
 
   print(bean.toJson().toString());
 
+}
+
+void testShangJiJson(){
+  List<FavoritiesItem> dataList = new List();
+  for(int i = 0;i< 10;i++){
+    FavoritiesItem favoritiesItem = new FavoritiesItem();
+    favoritiesItem.id = i;
+    if(i%4 == 0){
+      favoritiesItem.name = "";
+    }else{
+      favoritiesItem.name = "";
+    }
+    favoritiesItem.phone = "17609089876";
+    favoritiesItem.state = "跟进中";
+    favoritiesItem.labelList = new List();
+    for(int j = 0; j < 5; j++){
+      if(i % 2 == 1 && j >= 2){
+        continue;
+      }
+      LabelItem item = new LabelItem();
+      item.textColor = 0xFF666666;
+      item.text = "测试标签$j";
+      item.bgColor = 0xFFF6F6F6;
+      favoritiesItem.labelList.add(item);
+    }
+    favoritiesItem.time = "今天 09:00";
+    dataList.add(favoritiesItem);
+  }
+  FavoritiesState favoritiesState = FavoritiesState(dataList: dataList);
+
+  Map map = favoritiesState.toJson();
+  print(jsonEncode(map));
 }
