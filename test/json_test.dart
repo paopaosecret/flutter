@@ -64,9 +64,9 @@ void testShangJiJson(){
         continue;
       }
       LabelItem item = new LabelItem();
-      item.textColor = 0xFF666666;
-      item.text = "测试标签$j";
-      item.bgColor = 0xFFF6F6F6;
+      item.color = "#FF666666";
+      item.value = "测试标签$j";
+      item.background = "#FFF6F6F6";
       favoritiesItem.labelList.add(item);
     }
     favoritiesItem.time = "今天 09:00";

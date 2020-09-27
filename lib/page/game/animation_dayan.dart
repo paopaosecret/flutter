@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterstudy/utils/ui_utils.dart';
 
 class AnimationPage extends StatefulWidget {
   String str;
@@ -39,12 +40,13 @@ class _AnimationState extends State<AnimationPage>  with SingleTickerProviderSta
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Center(
-            child: Container(
-                margin: EdgeInsets.only(bottom: animation.value*5- 13 * 5),
-                width: animation.value, // 将动画的值赋给widget的宽高
-                height: animation.value,
-                child: Image.asset("assets/images/icon_dayan.png")
-            )));
+              child: Container(
+                  margin: EdgeInsets.only(bottom: animation.value*5- 13 * 5),
+                  width: animation.value, // 将动画的值赋给widget的宽高
+                  height: animation.value,
+                  child: Image.asset("assets/images/icon_dayan.png")
+              )),
+        );
   }
 
   @override

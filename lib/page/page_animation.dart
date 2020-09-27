@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterstudy/utils/ui_utils.dart';
 
 class AnimationPage extends StatefulWidget {
   String str;
@@ -38,19 +39,30 @@ class _AnimationState extends State<AnimationPage>
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Row(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(bottom: (animation.value - 20) * 2),
-              child: Image.asset("assets/images/icon_dayan.png", height: 7),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                  bottom: (animation.value - 20) * 4.5 + 5,
-                  left: (animation.value - 20) * 1),
-              child: Image.asset("assets/images/icon_dayan.png", height: 10),
-            )
-          ],
+        width: UITools.getScreenWidth(context),
+        height: 430,
+        //设置背景图片
+        decoration: new BoxDecoration(
+          image: new DecorationImage(
+            image: new AssetImage("assets/images/icon_game_scene.png"),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 60.0),
+          child: Row(
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(bottom: (animation.value - 20) * 2),
+                child: Image.asset("assets/images/icon_dayan.png", height: 7),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                    bottom: (animation.value - 20) * 4.5 + 5,
+                    left: (animation.value - 20) * 1),
+                child: Image.asset("assets/images/icon_dayan.png", height: 10),
+              )
+            ],
+          ),
         ));
   }
 

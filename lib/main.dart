@@ -6,6 +6,8 @@ import 'package:flutterstudy/page/fragment_me.dart';
 import 'package:flutterstudy/page/page_animation.dart';
 import 'package:flutterstudy/page/page_sample.dart';
 import 'package:flutterstudy/page/page_shangji.dart';
+import 'package:flutterstudy/page/pagebus/inheritedtest.dart';
+import 'package:flutterstudy/page/pagebus/notificationtest.dart';
 import 'package:flutterstudy/page/redux_page.dart';
 import 'package:flutterstudy/redux/app_reducer.dart';
 import 'package:flutterstudy/redux/middleware/add_middleware.dart';
@@ -97,43 +99,54 @@ class _MyAppState extends State<MyApp> {
           "problem_back":  (ctx) => new SimplePage(),
           "shangji_page":  (ctx) => new ShangJiPage(),
           "animation_page":  (ctx) => new AnimationPage(),
+          "inherited_test_page":  (ctx) => new CounterPage(),
+          "inherited_test2_page":  (ctx) => new Counter2Page(),
+          "notification_test_page": (ctx) => new CustomPage(),
         },
         home: Builder(
           builder: (context) => Scaffold(
             appBar: TitleBar().titleBar(context, '测试列表页',),
-            body: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  GestureDetector(
-                      onTap: (){
-                        Future.delayed(Duration(seconds: 1))
-                            .then((e) => throw StateError('This is a Dart exception 异步.'));
-                      },
-                  child: Container(
-                      width: 100,
-                      height: 50,
-                      color: Color(0xFFF2F2F2),
-                      child: Text("测试异步"))),
-                  GestureDetector(
-                      onTap: (){
-                        throw StateError('This is a Dart exception 同步');
-                      },
-                      child: Container(
-                          width: 100,
-                          height: 50,
-                          color: Color(0xFFF2F2F2),
-                          child: Text("测试同步"))),
-                  buildItem(context, "我的实体店", "my_store", null),
-                  buildItem(context, "福利商城", "fragment_me", null),
-                  buildItem(context, "UI测试页面", "ui_test", null),
-                  buildItem(context, "reduxPage", "redux_page", null),
-                  buildItem(context, "布局测试", "new_page", "布局测试页面参数"),
-                  buildItem(context, "问题反馈页面", "problem_back", null),
-                  buildItem(context, "商机页面", "shangji_page", null),
-                  buildItem(context, "动画页面", "animation_page", null),
-                ],
-              ),
+            body: ListView.builder(
+              itemCount: 1,
+              itemBuilder:(BuildContext context, int index){
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    GestureDetector(
+                        onTap: (){
+                          Future.delayed(Duration(seconds: 1))
+                              .then((e) => throw StateError('This is a Dart exception 异步.'));
+                        },
+                        child: Container(
+                            width: 100,
+                            height: 50,
+                            color: Color(0xFFF2F2F2),
+                            child: Text("测试异步"))),
+                    GestureDetector(
+                        onTap: (){
+                          throw StateError('This is a Dart exception 同步');
+                        },
+                        child: Container(
+                            width: 100,
+                            height: 50,
+                            color: Color(0xFFF2F2F2),
+                            child: Text("测试同步"))),
+                    buildItem(context, "我的实体店", "my_store", null),
+                    buildItem(context, "福利商城", "fragment_me", null),
+                    buildItem(context, "UI测试页面", "ui_test", null),
+                    buildItem(context, "reduxPage", "redux_page", null),
+                    buildItem(context, "布局测试", "new_page", "布局测试页面参数"),
+                    buildItem(context, "问题反馈页面", "problem_back", null),
+                    buildItem(context, "商机页面", "shangji_page", null),
+                    buildItem(context, "动画页面", "animation_page", null),
+                    buildItem(context, "inherited测试", "inherited_test_page", null),
+                    buildItem(context, "inherited测试2", "inherited_test2_page", null),
+                    buildItem(context, "notification测试", "notification_test_page", null),
+                  ],
+                );
+              }
+            ),
             ),
           ),
         ),

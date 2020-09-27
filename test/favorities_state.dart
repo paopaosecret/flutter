@@ -52,33 +52,34 @@ class FavoritiesState {
 
 class LabelItem {
   ///具体文本
-  String text;
+  String value;
 
   ///文字颜色
-  int textColor;
+  String color;
 
   ///标签背景色
-  int bgColor;
+  String background;
 
   LabelItem({
-    this.text,
-    this.textColor,
-    this.bgColor,
+    this.value,
+    this.color,
+    this.background,
   });
 
   factory LabelItem.fromJson(Map<String, dynamic> json) {
     return LabelItem(
-      text: json['text'] as String,
-      textColor: json['textColor'] as int,
-      bgColor: json['bgColor'] as int,
+      value: json['text'] as String,
+      color: json['textColor'] as String,
+      background: json['bgColor'] as String,
     );
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map();
-    data['text'] = this.text;
-    data['textColor'] = this.textColor;
-    data['bgColor'] = this.bgColor;
+    data['text'] = this.value;
+    data['textColor'] = this.color;
+    data['bgColor'] = this.background;
+
     return data;
   }
 }
@@ -157,7 +158,7 @@ class FavoritiesItem {
     data['time'] = this.time;
     data['isSelect'] = this.isSelect;
     if (this.labelList != null) {
-      data['labelList'] = this.labelList.map((a) => a.toJson()).toList();
+      data['labelList'] = this.labelList.map((v) => v.toJson()).toList();
     }
     return data;
   }
