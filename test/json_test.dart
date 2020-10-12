@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutterstudy/bean/service_item_bean.dart';
 import 'package:flutterstudy/bean/simple_bean.dart';
 import 'package:flutterstudy/bean/test_bean.dart';
 
@@ -15,7 +16,20 @@ void main(){
 //  testToJson();
 
 //  testFromJson();
-  testShangJiJson();
+//  testShangJiJson();
+
+getShowTime();
+}
+
+void getShowTime(){
+  String str = "2020-09-23 15:09:28";
+  String nian = str.replaceRange(4, 5, "年")
+      .replaceRange(7, 8, "月")
+      .replaceRange(10, 11, "日")
+      .replaceRange(13, 14, "时")
+      .replaceRange(16, 17, "分")
+      .substring(0, 17);
+  print('${nian}');
 }
 
 void testToJson(){
@@ -43,6 +57,17 @@ void testFromJson(){
   TestBean bean = TestBean.fromJson(map);
 
   print(bean.toJson().toString());
+
+}
+
+void testItemBean(){
+  List<ItemBean> dataList = new List();
+  for(int i = 0; i<  5; i++){
+    ItemBean itemBean = new ItemBean();
+    itemBean.id = i;
+    itemBean.name = "name${i}";
+    dataList.add(itemBean);
+  }
 
 }
 

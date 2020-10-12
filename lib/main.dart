@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutterstudy/page/fragment_me.dart';
+import 'package:flutterstudy/page/page_all_service.dart';
 import 'package:flutterstudy/page/page_animation.dart';
+import 'package:flutterstudy/page/page_draggable.dart';
 import 'package:flutterstudy/page/page_sample.dart';
 import 'package:flutterstudy/page/page_shangji.dart';
+import 'package:flutterstudy/page/page_tabbar.dart';
 import 'package:flutterstudy/page/pagebus/inheritedtest.dart';
 import 'package:flutterstudy/page/pagebus/notificationtest.dart';
 import 'package:flutterstudy/page/redux_page.dart';
@@ -23,6 +26,8 @@ import 'page/my_store.dart';
 import 'page/new_page.dart';
 import 'package:flutterstudy/eventbus/event_bus.dart';
 import 'package:flutterstudy/eventbus/event_constant.dart';
+
+import 'page/page_all_service2.dart';
 
 TextEditingController _describleController = new TextEditingController();
 TextEditingController _contractController = new TextEditingController();
@@ -102,6 +107,10 @@ class _MyAppState extends State<MyApp> {
           "inherited_test_page":  (ctx) => new CounterPage(),
           "inherited_test2_page":  (ctx) => new Counter2Page(),
           "notification_test_page": (ctx) => new CustomPage(),
+          "page_draggable": (ctx) => new DraggablePage(),
+          "page_tarbar": (ctx) => new TabBarPage(),
+          "page_all_service": (ctx) => new AllServicePage(),
+          "page_all3_service": (ctx) => new AllService3Page(),
         },
         home: Builder(
           builder: (context) => Scaffold(
@@ -143,6 +152,10 @@ class _MyAppState extends State<MyApp> {
                     buildItem(context, "inherited测试", "inherited_test_page", null),
                     buildItem(context, "inherited测试2", "inherited_test2_page", null),
                     buildItem(context, "notification测试", "notification_test_page", null),
+                    buildItem(context, "拖动测试", "page_draggable", null),
+                    buildItem(context, "tab切换", "page_tarbar", null),
+                    buildItem(context, "全部服务", "page_all_service", null),
+                    buildItem(context, "全部服务3", "page_all3_service", null),
                   ],
                 );
               }

@@ -6,6 +6,10 @@ class UITools {
   static double getScreenWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
   }
+
+  static double getScreenHeight(BuildContext context) {
+    return MediaQuery.of(context).size.height;
+  }
 }
 
 ///设置相对于子Widget的padding 属性，
