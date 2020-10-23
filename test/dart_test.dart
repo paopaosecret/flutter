@@ -1,5 +1,7 @@
 
 
+import 'package:flutter/material.dart';
+
 ///右键-》"run test in widget_test.dart"  运行此程序
 void main() {
 //  dynamic i = 1;       ///申明并初始化一个变量
@@ -415,19 +417,29 @@ class Person{
   int _id;   //_开头的属性为私有属性，外部文件无法访问
   String name;
   int age;
-  //注意，这里写法可能大家没见过， 这点和Java是不一样，这里实际上是一个dart的语法糖。
-  Person(this._id, this.name, this.age);
 
-//与上述的等价代码,当然这也是Java中必须要写的代码
+  int sex;
+
+  //TODO 定义一个构造器，用来生成一个类的实例, 其中sex = 1 是初始化列表
+  Person(this._id, this.name, this.age) : sex = 1;
+
+  //TODO 注意，这里写法可能大家没见过， 这点和Java是不一样，这里实际上是一个dart的语法糖。
+//TODO 与上述的等价代码,当然这也是Java中必须要写的代码
 //  Person(String name, int age){
 //    this.name = name;
 //    this.age = age;
 //  }
+
+  //TODO 定义一个命名构造函数 方式1，继承自主构造器
+  Person.name(String name) : this(0, name, 1);
+  SingleChildScrollView scrollView;
+  //TODO 定义一个命名构造函数 方式2，初始化列表方式
+  Person.age(this.age) : _id = 0, name = "";
 }
 
 class Student extends Person{
   int _sid;
-  Student(int id, String name, int age) : super(id, name, age);
+  Student(int id, String name, int age) : _sid = 1, super(id, name, age);
 
 //  @override
 //  void set _id(int __id) {

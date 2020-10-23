@@ -6,6 +6,7 @@ import 'package:flutterstudy/page/fragment_me.dart';
 import 'package:flutterstudy/page/page_all_service.dart';
 import 'package:flutterstudy/page/page_animation.dart';
 import 'package:flutterstudy/page/page_draggable.dart';
+import 'package:flutterstudy/page/page_liftcycle.dart';
 import 'package:flutterstudy/page/page_sample.dart';
 import 'package:flutterstudy/page/page_shangji.dart';
 import 'package:flutterstudy/page/page_tabbar.dart';
@@ -111,6 +112,7 @@ class _MyAppState extends State<MyApp> {
           "page_tarbar": (ctx) => new TabBarPage(),
           "page_all_service": (ctx) => new AllServicePage(),
           "page_all3_service": (ctx) => new AllService3Page(),
+          "page_liftcycle": (ctx) => new LiftCyclePage(),
         },
         home: Builder(
           builder: (context) => Scaffold(
@@ -141,6 +143,7 @@ class _MyAppState extends State<MyApp> {
                             height: 50,
                             color: Color(0xFFF2F2F2),
                             child: Text("测试同步"))),
+                    buildItem(context, "生命周期测试", "page_liftcycle", null),
                     buildItem(context, "我的实体店", "my_store", null),
                     buildItem(context, "福利商城", "fragment_me", null),
                     buildItem(context, "UI测试页面", "ui_test", null),
