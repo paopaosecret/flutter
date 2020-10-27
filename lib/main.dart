@@ -13,6 +13,9 @@ import 'package:flutterstudy/page/page_tabbar.dart';
 import 'package:flutterstudy/page/pagebus/inheritedtest.dart';
 import 'package:flutterstudy/page/pagebus/notificationtest.dart';
 import 'package:flutterstudy/page/redux_page.dart';
+import 'package:flutterstudy/page/scrollable/custom_scrollview.dart';
+import 'package:flutterstudy/page/scrollable/notificationlistener.dart';
+import 'package:flutterstudy/page/scrollable/single_child_scrollview.dart';
 import 'package:flutterstudy/redux/app_reducer.dart';
 import 'package:flutterstudy/redux/middleware/add_middleware.dart';
 import 'package:flutterstudy/redux/middleware/shangji_middleware.dart';
@@ -113,6 +116,9 @@ class _MyAppState extends State<MyApp> {
           "page_all_service": (ctx) => new AllServicePage(),
           "page_all3_service": (ctx) => new AllService3Page(),
           "page_liftcycle": (ctx) => new LiftCyclePage(),
+          "page_slinglechildscrollview": (ctx) => new SingleChildScrollViewTestPage(),
+          "page_customscrollview": (ctx) => new CustomScrollViewTestPage(),
+          "page_scrollnotification": (ctx) => new ScrollNotificationTestPage(),
         },
         home: Builder(
           builder: (context) => Scaffold(
@@ -159,6 +165,9 @@ class _MyAppState extends State<MyApp> {
                     buildItem(context, "tab切换", "page_tarbar", null),
                     buildItem(context, "全部服务", "page_all_service", null),
                     buildItem(context, "全部服务3", "page_all3_service", null),
+                    buildItem(context, "SingleChildScrollView", "page_slinglechildscrollview", null),
+                    buildItem(context, "CustomScrollView", "page_customscrollview", null),
+                    buildItem(context, "滚动通知监听", "page_scrollnotification", null),
                   ],
                 );
               }
