@@ -5,7 +5,7 @@ class SingleChildScrollViewTestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return Scrollbar( // 显示进度条
+    return Scrollbar( //显示滚动进度条
       child: SingleChildScrollView(
         reverse: true,  //false：初始滚动位置在头，true:初始滚动位置在尾
         padding: EdgeInsets.all(16.0),

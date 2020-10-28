@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutterstudy/page/calendar.dart';
 import 'package:flutterstudy/page/fragment_me.dart';
 import 'package:flutterstudy/page/page_all_service.dart';
 import 'package:flutterstudy/page/page_animation.dart';
@@ -119,6 +120,7 @@ class _MyAppState extends State<MyApp> {
           "page_slinglechildscrollview": (ctx) => new SingleChildScrollViewTestPage(),
           "page_customscrollview": (ctx) => new CustomScrollViewTestPage(),
           "page_scrollnotification": (ctx) => new ScrollNotificationTestPage(),
+          "page_calendar": (ctx) => new Calendar(),
         },
         home: Builder(
           builder: (context) => Scaffold(
@@ -168,6 +170,7 @@ class _MyAppState extends State<MyApp> {
                     buildItem(context, "SingleChildScrollView", "page_slinglechildscrollview", null),
                     buildItem(context, "CustomScrollView", "page_customscrollview", null),
                     buildItem(context, "滚动通知监听", "page_scrollnotification", null),
+                    buildItem(context, "日历", "page_calendar", null),
                   ],
                 );
               }

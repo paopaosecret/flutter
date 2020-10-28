@@ -13,7 +13,7 @@ void main() {
 //  testObject();
 //  testDynamic();
 //  initSet();
-  bianList();
+//   bianList();
 //  testSet();
 //  bianSet();
 //  bianMap();
@@ -23,9 +23,14 @@ void main() {
 //  student._sid = 18000;
 
 //  testWait();
-  testFuhao();
+//   testFuhao();
+  getMonthInitWeek(2020,10);
 }
-
+int getMonthInitWeek(int year, int month){
+  var d =new DateTime(year, month, 1);
+  print(d.weekday);
+  return d.weekday;
+}
 void testFuhao(){
   Object obj;
   Object obj1;
