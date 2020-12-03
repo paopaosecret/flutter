@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>JSON to Dart</title>
+
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="./github.css">
+
+</head>
+
+<body class="bg-light">
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>JSON to Dart</h2>
+        <p class="lead">输入JSON数据格式，点击生成按钮，自动帮你生成Dart类文件.</p>
+    </div>
+    <div class="row code-row">
+        <div class="col-12 col-md-4">
+            <form onsubmit="return false;">
+                <input class="form-control mb-2" id="dartClassName" placeholder="请输入生成Dart类名">
+                <div class="form-group">
+                    <label for="jsonEditor">JSON</label>
+                    <div id="jsonEditor" class=" ace_editor ace-github" draggable="false"><textarea
+                            class="ace_text-input" wrap="off" autocorrect="off" autocapitalize="off"
+                            spellcheck="false"
+                            style="opacity: 0; font-size: 1px; height: 1px; width: 1px; top: 14px; left: 44px;"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">生成Dart</button>
+                <label><input type="checkbox" id="private-fields"> 使用private fields</label>
+                <button id="copy-clipboard" class="mt-2 btn btn-secondary" disabled="disabled">
+                    复制生成的代码到剪贴板
+                </button>
+            </form>
+        </div>
+        <div class="col-12 col-md-8">
+            <b id="invalid-dart" style="display: none">The Dart code generated is invalid</b>
+            <pre><code class="dart hljs"></code></pre>
+            <textarea style="position:fixed;opacity: 0;" id="hidden-dart"></textarea>
+        </div>
+    </div>
+
+</div>
+<script src="./highlight.min.js"></script>
+<script src="./ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="./ace-mode-json.js" type="text/javascript" charset="utf-8"></script>
+<script src="./ace-theme-github.js" type="text/javascript" charset="utf-8"></script>
+<script src="./page.js"></script>
+
+
+</body>
+</html>

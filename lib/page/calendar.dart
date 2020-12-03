@@ -47,7 +47,7 @@ class _CalendarState extends State<Calendar> {
                   Expanded(
                       flex: 1,
                       child: GestureDetector(
-                        child: Center(child: Text("<<")),
+                        child: Center(child: Text("  <<  ")),
                         onTap: () {
                           setState(() {
                             year--;
@@ -59,7 +59,7 @@ class _CalendarState extends State<Calendar> {
                   Expanded(
                       flex: 1,
                       child: GestureDetector(
-                        child: Center(child: Text("<")),
+                        child: Center(child: Text("   <   ")),
                         onTap: () {
                           setState(() {
                             month--;
@@ -76,7 +76,7 @@ class _CalendarState extends State<Calendar> {
                   Expanded(
                       flex: 1,
                       child: GestureDetector(
-                        child: Center(child: Text(">")),
+                        child: Center(child: Text("   >   ")),
                         onTap: () {
                           setState(() {
                             month++;
@@ -92,7 +92,7 @@ class _CalendarState extends State<Calendar> {
                   Expanded(
                       flex: 1,
                       child: GestureDetector(
-                        child: Center(child: Text(">>")),
+                        child: Center(child: Text("  >>  ")),
                         onTap: () {
                           setState(() {
                             year++;

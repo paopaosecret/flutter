@@ -1,0 +1,17 @@
+class #pageName#{
+  String params;
+
+  #pageName#({
+    this.params,
+  });
+
+  #pageName#.initState({
+    this.params = "",
+  });
+
+  static #pageName# copy(#pageName# state) {
+    return #pageName#(
+      params: state.params,
+    );
+  }
+}

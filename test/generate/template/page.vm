@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+class #pageName# extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return _#pageName#State();
+  }
+}
+
+class _#pageName#State extends State<#pageName#> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return null;
+
+  }
+
+}

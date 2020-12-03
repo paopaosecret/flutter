@@ -1,0 +1,10 @@
+import 'package:redux/redux.dart';
+
+class #pageName# extends MiddlewareClass{
+
+  @override
+  void call(Store store, action, next) {
+    // TODO: implement call
+
+  }
+}

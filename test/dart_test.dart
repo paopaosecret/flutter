@@ -414,7 +414,6 @@ void testFunction(){
 void printNum() => print("hello dart");
 void printDart(String str) => print(str);
 
-
 ///八、面向对象
 ///在dart中一切皆是对象，所以面向对象在Dart中依然举足轻重
 ///8.1 类的基本定义和使用

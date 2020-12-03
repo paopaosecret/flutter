@@ -1,0 +1,12 @@
+import 'package:redux/redux.dart';
+
+import '#stateFileName#.dart';
+import '#actionFileName#.dart';
+
+final #pageName#Reducer = combineReducers<#statClassName#>([
+  TypedReducer<#statClassName#, InitPageAction>(_reduceInitPage),
+]);
+
+MyPageState _reduceInitPage(#statClassName# state, InitPageAction action){
+  return #statClassName#.copy(state);
+}
