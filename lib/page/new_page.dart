@@ -16,11 +16,11 @@ class NewPage extends StatelessWidget {
           SizedBox(height: 16.0), // 图片下面预留的高度
           Text(
               "title$index",
-              style:Theme.of(context).textTheme.title
+              style:Theme.of(context).textTheme.titleLarge
           ),
           Text(
               "作者",
-              style:Theme.of(context).textTheme.subhead
+              style:Theme.of(context).textTheme.subtitle1
           ),
         ],
       ), // 从上到下排列的容器

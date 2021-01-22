@@ -41,6 +41,16 @@ class UITest extends StatelessWidget{
                   shrinkWrap: true,
                   padding: const EdgeInsets.all(20.0),  //设置padding
                   children: <Widget>[
+                    Center(
+                      child: ClipPath(
+                        clipper: TrianglePath(),
+                        child: Container(
+                          width: 10,
+                          height: 7,
+                          color: Colors.redAccent,
+                        ),
+                      ),
+                    ),
                     Container(
                       height:100,
                       width: 100,
@@ -154,4 +164,21 @@ class UITest extends StatelessWidget{
   }
   final Widget divider1=Divider(color: Colors.blue,);
   final Widget divider2=Divider(color: Colors.green);
+}
+
+class TrianglePath extends CustomClipper<Path>{
+
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.moveTo(0, 0);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width/2, size.height);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
+  }
 }

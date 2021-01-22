@@ -71,7 +71,7 @@ class _LifeCycleState extends State<LiftCyclePage>{
         width: UITools.getScreenWidth(context),
         color: Color(0xFF00FF00),
         child: new Center(
-          child: new FlatButton(
+          child: new ElevatedButton(
             onPressed: () => setState(() => count++),
             child: new Text('$count'),
           ),

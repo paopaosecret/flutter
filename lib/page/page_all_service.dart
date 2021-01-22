@@ -71,7 +71,7 @@ class _AllServiceState extends State<AllServicePage> {
               SliverOverlapAbsorber(
                 handle:
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                child: SliverAppBar(
+                sliver: SliverAppBar(
                   ///左侧的图标或文字，多为返回箭头
                   leading: new IconButton(
                     icon: Icon(Icons.arrow_back),

@@ -19,7 +19,7 @@ class CustomChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return RaisedButton(
+    return ElevatedButton(
       onPressed: () {
         CustomNotification(DateTime.now().toIso8601String()).dispatch(context);
       },
