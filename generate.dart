@@ -21,8 +21,10 @@ void main(List<String> args) {
 initDirectory(String fileName) {
   final deployDir = Directory(Constant.generateDirectory);
   deployDir.exists().then((result){
-    print("删除零时文件夹");
-    deployDir.deleteSync(recursive: true);
+    if(result){
+      print("删除临时文件夹");
+      deployDir.deleteSync(recursive: true);
+    }
     print("创建零时文件夹");
     deployDir.createSync(recursive: true);
     String str = "${Constant.generateDirectory}/${GenerateUtils.getReduceDirectory(fileName)}";

@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutterstudy/widget/pull_to_refresh_header_widget.dart';
 import 'package:flutterstudy/widget/pull_to_refresh_widget.dart';
+import 'package:flutterstudy/widget/refresh_header_widget.dart';
 
 const Duration _kSizeDuration = Duration(milliseconds: 200);
 
@@ -50,7 +49,7 @@ class _ProxyIndicatorState extends State<ProxyIndicatorWidget>
     super.dispose();
     _sizeController.dispose();
     observer = null;
-    super.initState();
+//    super.initState();
   }
 
   @override
@@ -69,7 +68,7 @@ class _ProxyIndicatorState extends State<ProxyIndicatorWidget>
 
   @override
   void refreshing() {
-    _sizeController.value = 1.0;
+    _sizeController.animateTo(widget.height);
     if (observer == null ||
         observer.callbacks == null ||
         observer.callbacks.isEmpty) {
@@ -121,6 +120,12 @@ class RefreshObserver {
   removeListener(RefreshListener listener) {
     callbacks.remove(listener);
   }
+
+  bool contains(RefreshListener listener){
+    return callbacks.contains(listener);
+  }
+
+
 }
 
 class _InheritedRefreshContainer extends InheritedWidget {

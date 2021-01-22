@@ -2,8 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutterstudy/eventbus/event_bus.dart';
+import 'package:flutterstudy/eventbus/event_constant.dart';
 import 'package:flutterstudy/page/calendar.dart';
 import 'package:flutterstudy/page/fragment_me.dart';
+import 'package:flutterstudy/page/game/scroll_title_page.dart';
+import 'package:flutterstudy/page/game/shangji_home_page.dart';
 import 'package:flutterstudy/page/page_all_service.dart';
 import 'package:flutterstudy/page/page_animation.dart';
 import 'package:flutterstudy/page/page_draggable.dart';
@@ -11,27 +15,25 @@ import 'package:flutterstudy/page/page_liftcycle.dart';
 import 'package:flutterstudy/page/page_sample.dart';
 import 'package:flutterstudy/page/page_shangji.dart';
 import 'package:flutterstudy/page/page_tabbar.dart';
+import 'package:flutterstudy/page/page_ui_test.dart';
 import 'package:flutterstudy/page/pagebus/inheritedtest.dart';
 import 'package:flutterstudy/page/pagebus/notificationtest.dart';
+import 'package:flutterstudy/page/pagebus/stream_build_page.dart';
 import 'package:flutterstudy/page/redux_page.dart';
 import 'package:flutterstudy/page/scrollable/custom_scrollview.dart';
 import 'package:flutterstudy/page/scrollable/notificationlistener.dart';
 import 'package:flutterstudy/page/scrollable/single_child_scrollview.dart';
+import 'package:flutterstudy/page/transform_page.dart';
 import 'package:flutterstudy/redux/app_reducer.dart';
 import 'package:flutterstudy/redux/middleware/add_middleware.dart';
 import 'package:flutterstudy/redux/middleware/shangji_middleware.dart';
-import 'package:flutterstudy/redux/reducer/app_reducer.dart';
 import 'package:flutterstudy/redux/state/app_state.dart';
-import 'package:flutterstudy/page/page_ui_test.dart';
 import 'package:flutterstudy/widget/title_bar.dart';
 import 'package:flutterstudy/widget/toast.dart';
 import 'package:redux/redux.dart';
 
 import 'page/my_store.dart';
 import 'page/new_page.dart';
-import 'package:flutterstudy/eventbus/event_bus.dart';
-import 'package:flutterstudy/eventbus/event_constant.dart';
-
 import 'page/page_all_service2.dart';
 
 TextEditingController _describleController = new TextEditingController();
@@ -112,6 +114,7 @@ class _MyAppState extends State<MyApp> {
           "inherited_test_page":  (ctx) => new CounterPage(),
           "inherited_test2_page":  (ctx) => new Counter2Page(),
           "notification_test_page": (ctx) => new CustomPage(),
+          "page_stream_build": (ctx) => new StreamBuilderPage(),
           "page_draggable": (ctx) => new DraggablePage(),
           "page_tarbar": (ctx) => new TabBarPage(),
           "page_all_service": (ctx) => new AllServicePage(),
@@ -121,6 +124,9 @@ class _MyAppState extends State<MyApp> {
           "page_customscrollview": (ctx) => new CustomScrollViewTestPage(),
           "page_scrollnotification": (ctx) => new ScrollNotificationTestPage(),
           "page_calendar": (ctx) => new Calendar(),
+          "page_transform": (ctx) => new TransformPage(),
+          "page_scroll_title": (ctx) => new ScrollTitlePage(),
+          "page_shangji_home": (ctx) => new ShangjiHomePage(),
         },
         home: Builder(
           builder: (context) => Scaffold(
@@ -163,6 +169,7 @@ class _MyAppState extends State<MyApp> {
                     buildItem(context, "inherited测试", "inherited_test_page", null),
                     buildItem(context, "inherited测试2", "inherited_test2_page", null),
                     buildItem(context, "notification测试", "notification_test_page", null),
+                    buildItem(context, "StreamBuild测试", "page_stream_build", null),
                     buildItem(context, "拖动测试", "page_draggable", null),
                     buildItem(context, "tab切换", "page_tarbar", null),
                     buildItem(context, "全部服务", "page_all_service", null),
@@ -171,6 +178,9 @@ class _MyAppState extends State<MyApp> {
                     buildItem(context, "CustomScrollView", "page_customscrollview", null),
                     buildItem(context, "滚动通知监听", "page_scrollnotification", null),
                     buildItem(context, "日历", "page_calendar", null),
+                    buildItem(context, "Transform使用", "page_transform", null),
+                    buildItem(context, "滑动头", "page_scroll_title", null),
+                    buildItem(context, "商机Home", "page_shangji_home", null),
                   ],
                 );
               }

@@ -27,7 +27,7 @@ dependencies:
   json_annotation: ^3.0.0
   # 异常上报
   flutter_bugly: ^0.2.7
-  webview_flutter: 0.3.21
+#  webview_flutter: 0.3.21
 
 
 dev_dependencies:
@@ -53,6 +53,7 @@ flutter:
   assets:
   #批量定义
     - assets/images/
+    - assets/images/icon_pulltorefresh_arrow.png
   #单个定义如下：
   #  - images/title_back.png
   #  - images/icon_shop_info_edit.png

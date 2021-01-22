@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterstudy/utils/ui_utils.dart';
 
 ///总结：InheritedWidget 主要用来子Widget共享父Widget的数据
 
@@ -36,7 +39,6 @@ class CounterPage extends StatefulWidget {
 }
 
 class _CountPageState extends State<CounterPage> {
-
   ///顶级Widget的数据
   int count = 10;
 
@@ -47,11 +49,30 @@ class _CountPageState extends State<CounterPage> {
 
   @override
   Widget build(BuildContext context) {
-
     ///通过InheritedWidget(CountContainer)将当前Widget的数据(count)共享给子Widget(Countet)
-    return new CountContainer(
-      count,
-      child: new Counter(),
+    return Material(
+      child: CountContainer(
+        count,
+        child: Column(
+          children: <Widget>[
+            GestureDetector(
+                onTap:(){
+                  setState(() {
+                    this.count = Random(100).nextInt(500);
+                  });
+
+                },
+                child: Container(
+                    width: UITools.getScreenWidth(context),
+                    height: 100,
+                    child: Text("改变Count"))),
+            Container(
+                width: UITools.getScreenWidth(context),
+                height: 300,
+                child: new Counter()),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -73,7 +94,6 @@ class Counter extends StatelessWidget {
 
 ///part 2：InheritedWidget 仅提供了数据读的能力，如果我们想要修改它的数据，则需要把它和 StatefulWidget 中的 State 配套使用。
 class Count2Container extends InheritedWidget {
-
   static Count2Container of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<Count2Container>();
 
@@ -83,10 +103,11 @@ class Count2Container extends InheritedWidget {
   final Function increment;
 
   ///创建构造器
-  Count2Container({Key key,
-    @required this.state,
-    @required this.increment,
-    @required Widget child})
+  Count2Container(
+      {Key key,
+      @required this.state,
+      @required this.increment,
+      @required Widget child})
       : super(key: key, child: child);
 
   @override
@@ -106,8 +127,7 @@ class Counter2Page extends StatefulWidget {
 class _Counter2PageState extends State<Counter2Page> {
   int count = 0;
 
-  void _incrementCount() =>
-      setState(() {
+  void _incrementCount() => setState(() {
         count++;
       });
 
@@ -115,14 +135,17 @@ class _Counter2PageState extends State<Counter2Page> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Count2Container(
-        state: this,///将自身作为state交给CountContainer
-        increment: _incrementCount,   ///提供修改数据的方法
+        state: this,
+
+        ///将自身作为state交给CountContainer
+        increment: _incrementCount,
+
+        ///提供修改数据的方法
         child: Counter2());
   }
 }
 
-class Counter2 extends StatelessWidget{
-
+class Counter2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ///获取InheritedWidget节点
@@ -131,9 +154,11 @@ class Counter2 extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(title: Text("InheritedWidget demo")),
       body: Text(
-        'You have pushed the button this many times: ${state.state.count}',               //数据的读取
+        'You have pushed the button this many times: ${state.state.count}', //数据的读取
       ),
-      floatingActionButton: FloatingActionButton(onPressed: state.state._incrementCount), //数据的修改，修改的逻辑在顶层的state中,限制性，子widget中不能传参修改
+      floatingActionButton: FloatingActionButton(
+          onPressed: state.state
+              ._incrementCount), //数据的修改，修改的逻辑在顶层的state中,限制性，子widget中不能传参修改
     );
   }
 }

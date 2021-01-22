@@ -15,13 +15,13 @@ import io.flutter.plugins.GeneratedPluginRegistrant;
 public class MainActivity extends FlutterActivity {
 
   // Flutter 1.17.1 版本初始，V.1.12.13hotfix 时需要注掉
+//  @Override
+//  public void configureFlutterEngine(FlutterEngine flutterEngine) {
+//      GeneratedPluginRegistrant.registerWith(flutterEngine);
+//  }
+
+
   @Override
-  public void configureFlutterEngine(FlutterEngine flutterEngine) {
-      GeneratedPluginRegistrant.registerWith(flutterEngine);
-  }
-
-
-    @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // 创建 Flutter 的 View 并绑定到 Activity
@@ -29,7 +29,7 @@ public class MainActivity extends FlutterActivity {
 //    V.1.12.13hotfix版本初始， Flutter 1.17.1 时需要注掉
 //    FlutterEngine flutterEngine = new FlutterEngine(this);
 //    GeneratedPluginRegistrant.registerWith(flutterEngine);
-//
+
     new MethodChannel(getFlutterView(), "samples.flutter.io/battery").setMethodCallHandler(new MethodChannel.MethodCallHandler() {
         @Override
         public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
