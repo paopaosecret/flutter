@@ -7,7 +7,7 @@ class ZListView extends StatefulWidget{
   
   final String title;
   
-  ZListView({Key key, this.title}) : super(key : key);
+  ZListView({Key? key, required this.title}) : super(key : key);
 
   @override
   State<StatefulWidget> createState() {
@@ -18,7 +18,7 @@ class ZListView extends StatefulWidget{
 
 class ZState extends State<ZListView>{
   LoadStatus loadStatus = LoadStatus.STATUS_IDEL;
-  List<String> list = new List();  ///数据源
+  List<String> list = <String>[];  ///数据源
   String loadText = "加载中...";   ///加载时，显示的文本
   int pageCount = 10;
 
@@ -26,7 +26,7 @@ class ZState extends State<ZListView>{
   Widget _padAll(Widget widget, var value){
     return new Padding(padding: EdgeInsets.all(value), child: widget);
   }
-  Widget _pad(Widget widget, {double l,double  t,double  r,double b}){
+  Widget _pad(Widget widget, {double? l,double?  t,double?  r,double? b}){
     return new Padding(padding: EdgeInsets.fromLTRB(l ??= 0.0, t ??= 0.0, r ??= 0.0, b ??= 0.0), child: widget);
   }
 
@@ -69,7 +69,7 @@ class ZState extends State<ZListView>{
         loadStatus = LoadStatus.STATUS_LOADING;
       });
     }
-    List<String> moreList;
+    List<String> moreList = <String>[];
     ///假设数据总共65条，做一个限制
     if(list.length < 45) {
       ///异步准备数据

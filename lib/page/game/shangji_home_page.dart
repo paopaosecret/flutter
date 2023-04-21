@@ -102,7 +102,7 @@ class _ShangjiHomePageState extends State<ShangjiHomePage>
               isLoadMoreEnable: true,
               isRefreshEnable: true,
               onRefresh: _doRefresh,
-              onLoadMore: (){
+              onLoadMore: () async {
                 ToastUtils.showToast("上拉");
               },
               headerBuilder:_listViewHeader,

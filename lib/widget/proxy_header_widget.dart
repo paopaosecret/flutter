@@ -4,9 +4,9 @@ import 'package:flutterstudy/widget/refresh_header_widget.dart';
 
 const Duration _kSizeDuration = Duration(milliseconds: 200);
 
-RefreshObserver of(BuildContext context) {
+RefreshObserver? of(BuildContext context) {
   /// 这个方法内，调用 context.inheritFromWidgetOfExactType
-  InheritedWidget widget =
+  _InheritedRefreshContainer? widget =
   context.dependOnInheritedWidgetOfExactType<_InheritedRefreshContainer>();
 //  context.dependOnInheritedWidgetOfExactType(aspect:_InheritedRefreshContainer);
 
@@ -22,7 +22,9 @@ class ProxyIndicatorWidget extends StatefulWidget {
   final HeaderBuilder builder;
   final double height;
 
-  const ProxyIndicatorWidget({Key key, this.builder, this.height})
+  const ProxyIndicatorWidget({required Key key, required this.builder,
+    required this
+      .height})
       : super(key: key);
 
   @override
@@ -33,8 +35,8 @@ class ProxyIndicatorWidget extends StatefulWidget {
 
 class _ProxyIndicatorState extends State<ProxyIndicatorWidget>
     with TickerProviderStateMixin, RefreshListener {
-  AnimationController _sizeController;
-  RefreshObserver observer;
+  late AnimationController _sizeController;
+  late RefreshObserver observer;
 
   @override
   void initState() {
@@ -48,15 +50,13 @@ class _ProxyIndicatorState extends State<ProxyIndicatorWidget>
   void dispose() {
     super.dispose();
     _sizeController.dispose();
-    observer = null;
 //    super.initState();
   }
 
   @override
   void reset() {
     if (observer == null ||
-        observer.callbacks == null ||
-        observer.callbacks.isEmpty) {
+        observer?.callbacks == null || observer.callbacks.isEmpty) {
       return;
     }
     for (RefreshListener listener in observer.callbacks) {
@@ -70,12 +70,13 @@ class _ProxyIndicatorState extends State<ProxyIndicatorWidget>
   void refreshing() {
     _sizeController.animateTo(widget.height);
     if (observer == null ||
-        observer.callbacks == null ||
-        observer.callbacks.isEmpty) {
+        observer?.callbacks == null || observer.callbacks.isEmpty) {
       return;
     }
-    for (RefreshListener listener in observer.callbacks) {
-      listener.refreshing();
+    if (observer != null) {
+      for (RefreshListener listener in observer.callbacks) {
+        listener.refreshing();
+      }
     }
   }
 
@@ -88,7 +89,8 @@ class _ProxyIndicatorState extends State<ProxyIndicatorWidget>
           child: new Container(height: widget.height),
         ),
         _InheritedRefreshContainer(
-            observer: observer, child: widget.builder(context)),
+            observer: observer,
+            child: widget.builder(context)),
       ],
     );
   }
@@ -109,7 +111,7 @@ class _ProxyIndicatorState extends State<ProxyIndicatorWidget>
 /// 刷新接口的观察者
 class RefreshObserver {
   /// 注册被观察者的列表
-  List<RefreshListener> callbacks = List();
+  List<RefreshListener> callbacks = <RefreshListener>[];
 
   addListener(RefreshListener listener) {
     if (listener != null && !callbacks.contains(listener)) {
@@ -133,7 +135,7 @@ class _InheritedRefreshContainer extends InheritedWidget {
 
   /// 我们知道InheritedWidget总是包裹的一层，所以它必有child
   _InheritedRefreshContainer(
-      {Key key, @required this.observer, @required Widget child})
+      {Key? key, required this.observer, required Widget child})
       : super(key: key, child: child);
 
   /// 参考MediaQuery,这个方法通常都是这样实现的。如果新的值和旧的值不相等，就需要notify

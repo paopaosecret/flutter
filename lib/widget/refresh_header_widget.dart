@@ -4,7 +4,7 @@ import 'package:flutterstudy/widget/proxy_header_widget.dart';
 /// 下拉刷新头部 widget
 abstract class RefreshHeaderWidget<T extends RefreshState>
     extends StatefulWidget {
-  const RefreshHeaderWidget({Key key}) : super(key: key);
+  const RefreshHeaderWidget({Key? key}) : super(key: key);
 
   @override
   RefreshState createState();
@@ -12,7 +12,7 @@ abstract class RefreshHeaderWidget<T extends RefreshState>
 
 abstract class RefreshState<T extends StatefulWidget> extends State<T>
     implements RefreshListener {
-  RefreshObserver observer;
+  RefreshObserver? observer;
 
   @override
   void didChangeDependencies() {
@@ -20,16 +20,16 @@ abstract class RefreshState<T extends StatefulWidget> extends State<T>
     observer = of(context);
 
     /// 添加监听事件
-    if (observer != null && !observer.contains(this)) {
-      observer.addListener(this);
+    if (observer != null && !observer!.contains(this)) {
+      observer!.addListener(this);
     }
   }
 
   @override
   void dispose() {
     /// 移除监听事件
-    if (observer != null && observer.contains(this)) {
-      observer.removeListener(this);
+    if (observer != null && observer!.contains(this)) {
+      observer!.removeListener(this);
     }
     super.dispose();
   }

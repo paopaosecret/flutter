@@ -17,7 +17,7 @@ Widget padAll(Widget widget, var value){
   return new Padding(padding: EdgeInsets.all(value), child: widget);
 }
 
-Widget pad(Widget widget, {double l,double  t,double  r,double b}){
+Widget pad(Widget widget, {double? l,double?  t,double?  r,double? b}){
   return new Padding(padding: EdgeInsets.fromLTRB(l ??= 0.0, t ??= 0.0, r ??= 0.0, b ??= 0.0), child: widget);
 }
 
@@ -36,8 +36,8 @@ void showCustomDialog(
     String contentText,           ///内容文本
     String leftButton,            ///底部左边按钮文本
     String rightButton,           ///底部右边按钮文本
-    Function leftListener,        ///底部左边按钮事件
-    Function rightListener) {     ///底部右边按钮事件
+    VoidCallback? leftListener,        ///底部左边按钮事件
+    VoidCallback? rightListener) {     ///底部右边按钮事件
   var title = Row(//标题
     mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[

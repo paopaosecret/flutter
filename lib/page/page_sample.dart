@@ -5,7 +5,6 @@ import 'package:flutterstudy/widget/title_bar.dart';
 import 'package:flutterstudy/widget/toast.dart';
 
 class SimplePage extends StatefulWidget {
-  String str;
 
   @override
   State<StatefulWidget> createState() {

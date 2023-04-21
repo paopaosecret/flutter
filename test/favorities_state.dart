@@ -1,9 +1,9 @@
 class FavoritiesState {
-  List<FavoritiesItem> dataList = new List();
-  bool loadMoreFlag = false;
-  bool allSelect = false;
-  bool isEdit = false;
-  int selectCount = 0;
+  List<FavoritiesItem>? dataList = <FavoritiesItem>[];
+  bool? loadMoreFlag = false;
+  bool? allSelect = false;
+  bool? isEdit = false;
+  int? selectCount = 0;
 
   FavoritiesState({
     this.dataList,
@@ -26,7 +26,7 @@ class FavoritiesState {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map();
     if (this.dataList != null) {
-      data['dataList'] = this.dataList.map((v) => v.toJson()).toList();
+      data['dataList'] = this.dataList?.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -52,13 +52,13 @@ class FavoritiesState {
 
 class LabelItem {
   ///具体文本
-  String value;
+  String? value;
 
   ///文字颜色
-  String color;
+  String? color;
 
   ///标签背景色
-  String background;
+  String? background;
 
   LabelItem({
     this.value,
@@ -85,32 +85,32 @@ class LabelItem {
 }
 
 class FavoritiesItem {
-  int id;
-  String name;
+  int? id;
+  String? name;
 
   ///用户名
-  String phone;
+  String? phone;
 
   ///电话号码
-  String state;
+  String? state;
 
   ///状态
-  String source;
+  String? source;
 
   ///来源
-  String city;
+  String? city;
 
   ///城市
-  String cate;
+  String? cate;
 
   ///类目
-  String time;
+  String? time;
 
   ///时间
-  bool isSelect;
+  bool? isSelect;
 
   ///编辑是否选中
-  List<LabelItem> labelList;
+  List<LabelItem>? labelList;
 
   ///标签列表
 
@@ -158,7 +158,7 @@ class FavoritiesItem {
     data['time'] = this.time;
     data['isSelect'] = this.isSelect;
     if (this.labelList != null) {
-      data['labelList'] = this.labelList.map((v) => v.toJson()).toList();
+      data['labelList'] = this.labelList!.map((v) => v.toJson()).toList();
     }
     return data;
   }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutterstudy/utils/ui_utils.dart';
 
 class AnimationPage extends StatefulWidget {
-  String str;
 
   @override
   State<StatefulWidget> createState() {
@@ -13,8 +12,8 @@ class AnimationPage extends StatefulWidget {
 
 class _AnimationState extends State<AnimationPage>  with SingleTickerProviderStateMixin {
 
-  AnimationController controller;
-  Animation<double> animation;
+  late AnimationController controller;
+  late Animation<double> animation;
   @override
   void initState() {
     super.initState();

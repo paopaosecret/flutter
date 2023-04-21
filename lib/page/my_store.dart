@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterstudy/bean/service_item_bean.dart';
 import 'package:flutterstudy/widget/title_bar.dart';
 import 'package:flutterstudy/widget/toast.dart';
 import '../utils/ui_utils.dart';
@@ -16,7 +17,7 @@ class StoreState extends State<MyStore> {
   String loadText = "——————已经到底了——————";
 
   ///加载时，显示的文本
-  List<ItemBean> dataList = new List();
+  List<ItemBean> dataList = <ItemBean>[];
   int pageCount = 10;
   ScrollController _controller = new ScrollController();
 
@@ -61,7 +62,7 @@ class StoreState extends State<MyStore> {
         loadStatus = LoadStatus.STATUS_LOADING;
       });
     }
-    List<ItemBean> moreList;
+    late List<ItemBean> moreList;
 
     ///假设数据总共65条，做一个限制
     if (dataList.length < 45) {
@@ -314,7 +315,7 @@ class StoreState extends State<MyStore> {
           width: 20.0,
           height: 20.0,
         ),
-        loadStatus == LoadStatus.STATUS_LOADING ? true : false);
+        loadStatus == LoadStatus.STATUS_LOADING ? true : false) as Visibility;
 
     return pad(
         Row(
@@ -360,13 +361,13 @@ class StoreState extends State<MyStore> {
 }
 
 class ItemBean {
-  String address; //		北京朝阳酒仙桥
-  String phone; //	13510577981
-  String name; //		跑腿小店(酒仙桥店)
-  String id; // 3282856343633199237
-  int state; //状态
-  int type; //类型
-  String cateName; //保洁清洗
+  String? address; //		北京朝阳酒仙桥
+  String? phone; //	13510577981
+  late String name; //		跑腿小店(酒仙桥店)
+  String? id; // 3282856343633199237
+  int? state; //状态
+  int? type; //类型
+  late String cateName; //保洁清洗
 }
 
 ///刷新过程状态

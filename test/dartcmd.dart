@@ -18,6 +18,7 @@ Future<void> exeCmd() async{
   //当前系统的命令行，例如Windoes命令行Nslookup www.baidu.com
   ProcessResult result = await Process.run('mvn', ['-version'], runInShell: true).then((ProcessResult results) {
     print(results.stdout);
+    return results.stdout;
   });
 
   print("result:" + result.stdout);

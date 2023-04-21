@@ -56,7 +56,7 @@ class TabBarPage extends StatefulWidget {
 
 class _TabBarPageState extends State<TabBarPage>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  late TabController _tabController;
   ScrollController _controller = new ScrollController();
   int index = 0;
 

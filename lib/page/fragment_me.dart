@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutterstudy/widget/marquee.dart';
 import 'package:flutterstudy/widget/toast.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 ///首页-我的页面
 class FragmentMe extends StatefulWidget {
 
@@ -13,7 +13,7 @@ class FragmentMe extends StatefulWidget {
 }
 
 class _State extends State<FragmentMe> {
-  List<MeItemBean> dataList = new List();
+  List<MeItemBean> dataList = <MeItemBean>[];
   bool testRefresh = true;
 
   ///初始化状态数据
@@ -29,7 +29,6 @@ class _State extends State<FragmentMe> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
-    print("screenWidth: ${ScreenUtil.screenWidth}");
     return Scaffold(
       backgroundColor: Color(0xFFF3F3F3),
       body: new RefreshIndicator(
@@ -609,8 +608,8 @@ class _State extends State<FragmentMe> {
 }
 
 class MeItemBean {
-  ItemType type; //		北京朝阳酒仙桥
-  Map data; //	13510577981
+  ItemType? type; //		北京朝阳酒仙桥
+  Map? data; //	13510577981
 }
 
 ///刷新过程状态

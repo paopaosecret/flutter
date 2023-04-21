@@ -14,8 +14,8 @@ class Marquee extends StatefulWidget {
 }
 
 class _MarqueeState extends State<Marquee> {
-  PageController _controller;
-  Timer _timer;
+  late PageController _controller;
+  late Timer _timer;
 
   @override
   void initState() {
@@ -24,7 +24,9 @@ class _MarqueeState extends State<Marquee> {
     _controller = PageController();
     _timer = Timer.periodic(Duration(seconds: 2), (timer) {
       // 如果当前位于最后一页，则直接跳转到第一页，两者内容相同，跳转时视觉上无感知
-      if (_controller.page.round() >= widget.count) {
+
+      int pageCount = _controller.page?.round() ?? 0;
+      if (pageCount >= widget.count) {
         _controller.jumpToPage(0);
       }
       _controller.nextPage(

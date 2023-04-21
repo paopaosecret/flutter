@@ -11,21 +11,19 @@ class AllServicePage extends StatefulWidget {
 class _AllServiceState extends State<AllServicePage> {
   bool isEdit = false;
   bool isDown = false;
-  List<ItemBean> dataList;
+  late List<ItemBean> dataList;
   double maxTop = 0.0;
   double currentTop = 0.0;
   bool isFrist = true;
 
   initDataList() {
     if (dataList == null) {
-      dataList = new List();
+      dataList = <ItemBean>[];
     } else {
       dataList.clear();
     }
     for (int i = 0; i < 5; i++) {
-      ItemBean itemBean = new ItemBean();
-      itemBean.id = i;
-      itemBean.name = "name${i}";
+      ItemBean itemBean = ItemBean(id:i, name:"name${i}");
       dataList.add(itemBean);
     }
   }
@@ -81,9 +79,8 @@ class _AllServiceState extends State<AllServicePage> {
                           isDown = false;
                         }
                         if (dataList.length < 10 && !isDown) {
-                          ItemBean itemBean = new ItemBean();
-                          itemBean.id = dataList.length;
-                          itemBean.name = "name${dataList.length}";
+                          ItemBean itemBean = new ItemBean(id:dataList
+                              .length, name:"name${dataList.length}");
                           dataList.add(itemBean);
                         } else {
                           isDown = true;

@@ -32,8 +32,8 @@ int getMonthInitWeek(int year, int month){
   return d.weekday;
 }
 void testFuhao(){
-  Object obj;
-  Object obj1;
+  Object? obj;
+  Object? obj1;
   print(obj ?? obj1 ?? "obj和obj1都是空");
 }
 
@@ -382,9 +382,9 @@ num sum(num a, num b) {
 
 ///7.2函数传参
 void m1(int a, int b, int c){}// 参数个数  和顺序完全一样
-void m2([int a, int b, int c]){}//参数顺序一样， 个数可以不一样
-void m3({int a, int b, int c}){} //参数顺序和个数都可以变化
-void m4(int a, intb, {int c, int d}){}//a,b 个数顺序完全一样 ， 后两个顺序和个数可以变化
+void m2([int? a, int? b, int? c]){}//参数顺序一样， 个数可以不一样
+void m3({int? a, int? b, int? c}){} //参数顺序和个数都可以变化
+void m4(int a, intb, {int? c, int? d}){}//a,b 个数顺序完全一样 ， 后两个顺序和个数可以变化
 void m5({num a = 100}){}      //其中{} 为可选参数，可选参数可以设置默认值
 void m6(){
   m1(1, 2, 3);// 参数个数  和顺序完全一样
@@ -397,7 +397,7 @@ void m6(){
 ///在dart函数也是一种类型Function,可以作为函数参数传递，也可以作为返回值。
 
 ///Function 作为参数
-void add(int a, int b, [Function op1, Function op2]){}
+void add(int a, int b, [Function? op1, Function? op2]){}
 void testFunction(){
 
   ///定义一个函数，
@@ -422,7 +422,7 @@ class Person{
   String name;
   int age;
 
-  int sex;
+  int? sex;
 
   //TODO 定义一个构造器，用来生成一个类的实例, 其中sex = 1 是初始化列表
   Person(this._id, this.name, this.age) : sex = 1;
@@ -436,7 +436,7 @@ class Person{
 
   //TODO 定义一个命名构造函数 方式1，继承自主构造器
   Person.name(String name) : this(0, name, 1);
-  SingleChildScrollView scrollView;
+  SingleChildScrollView? scrollView;
   //TODO 定义一个命名构造函数 方式2，初始化列表方式
   Person.age(this.age) : _id = 0, name = "";
 }

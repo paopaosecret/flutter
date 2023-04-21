@@ -33,9 +33,7 @@ void getShowTime(){
 }
 
 void testToJson(){
-  SimpleBean simpleBean = new SimpleBean();
-  simpleBean.id = 2;
-  simpleBean.name = "simple";
+  SimpleBean simpleBean = SimpleBean(id: 2, name: "simple");
   List<SimpleBean> data = [simpleBean, simpleBean, simpleBean];
   List<String> pics = ["pic1", "pic2"];
   TestBean bean = new TestBean(
@@ -61,18 +59,16 @@ void testFromJson(){
 }
 
 void testItemBean(){
-  List<ItemBean> dataList = new List();
+  List<ItemBean> dataList = <ItemBean>[];
   for(int i = 0; i<  5; i++){
-    ItemBean itemBean = new ItemBean();
-    itemBean.id = i;
-    itemBean.name = "name${i}";
+    ItemBean itemBean = new ItemBean(id: i, name: "name${i}");
     dataList.add(itemBean);
   }
 
 }
 
 void testShangJiJson(){
-  List<FavoritiesItem> dataList = new List();
+  List<FavoritiesItem> dataList = <FavoritiesItem>[];
   for(int i = 0;i< 10;i++){
     FavoritiesItem favoritiesItem = new FavoritiesItem();
     favoritiesItem.id = i;
@@ -83,7 +79,7 @@ void testShangJiJson(){
     }
     favoritiesItem.phone = "17609089876";
     favoritiesItem.state = "跟进中";
-    favoritiesItem.labelList = new List();
+    favoritiesItem.labelList = <LabelItem>[];
     for(int j = 0; j < 5; j++){
       if(i % 2 == 1 && j >= 2){
         continue;
@@ -92,7 +88,7 @@ void testShangJiJson(){
       item.color = "#FF666666";
       item.value = "测试标签$j";
       item.background = "#FFF6F6F6";
-      favoritiesItem.labelList.add(item);
+      favoritiesItem.labelList?.add(item);
     }
     favoritiesItem.time = "今天 09:00";
     dataList.add(favoritiesItem);

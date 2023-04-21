@@ -5,7 +5,7 @@ import 'package:flutterstudy/widget/refresh_header_widget.dart';
 
 class DefaultRefreshHeaderWidget<_DefaultIndicatorState>
     extends RefreshHeaderWidget {
-  DefaultRefreshHeaderWidget({Key key}) : super(key: key);
+  DefaultRefreshHeaderWidget({Key? key}) : super(key: key);
 
   @override
   _DefaultLoadingState createState() {
@@ -20,7 +20,7 @@ const int _refreshing = 3;
 
 class _DefaultLoadingState extends RefreshState<DefaultRefreshHeaderWidget> {
   int mode = 0;
-  int lastUpdateTime;
+  late int lastUpdateTime;
   TextStyle style = TextStyle(fontSize: 12);
   TextStyle stateStyle = TextStyle(fontSize: 13);
 

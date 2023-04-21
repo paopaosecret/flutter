@@ -77,7 +77,7 @@ class UITest extends StatelessWidget{
                       child: new IconButton(
                           icon:  Image.asset("images/title_back.png",width:30,height:30),
                           onPressed: () {
-                            List<ItemBean> list = new List();
+                            List<ItemBean> list = <ItemBean>[];
                             for(int i = 0; i < 10; i++){
                               ItemBean bean = new ItemBean();
                               bean.phone = "13510577981";

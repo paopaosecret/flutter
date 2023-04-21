@@ -3,8 +3,8 @@ class SimpleBean {
   String name;
 
   SimpleBean({
-    this.id,
-    this.name,
+    required this.id,
+    required this.name,
   });
 
   factory SimpleBean.fromJson(Map<String, dynamic> json){

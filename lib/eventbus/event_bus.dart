@@ -18,10 +18,11 @@ class EventBus{
   void register(eventName, EventCallback callback){
     if(eventName != null && callback != null){
       //如果该事件的订阅消息队列为空，则初始化该事件消息队列
-      _messageQueue[eventName] ??= new List<EventCallback>();
-
+      if (_messageQueue[eventName] == null) {
+        _messageQueue[eventName] =  <EventCallback>[];
+      }
       //为该事件添加订阅回调
-      _messageQueue[eventName].add(callback);
+      _messageQueue[eventName]?.add(callback);
     }
   }
 

@@ -42,13 +42,13 @@ typedef Future<void> OnLoadMoreCallback();
 
 class PullToRefreshWidget extends StatefulWidget {
   /// 下拉头部视图创建者
-  final HeaderBuilder headerBuilder;
+  final HeaderBuilder? headerBuilder;
 
   /// 上拉底部视图创建者
-  final FooterBuilder footerBuilder;
+  final FooterBuilder? footerBuilder;
 
   /// 没有更多视图创建者
-  final NoMoreBuilder noMoreBuilder;
+  final NoMoreBuilder? noMoreBuilder;
 
   /// 是否开启上拉加载更多
   final bool isLoadMoreEnable;
@@ -57,12 +57,12 @@ class PullToRefreshWidget extends StatefulWidget {
   final bool isRefreshEnable;
 
   /// 监听下拉刷新属性
-  final OnRefreshCallback onRefresh;
+  final OnRefreshCallback? onRefresh;
 
   /// 监听上拉加载更多
-  final OnLoadMoreCallback onLoadMore;
+  final OnLoadMoreCallback? onLoadMore;
 
-  final ScrollNotify scrollNotify;
+  final ScrollNotify? scrollNotify;
 
   /// 内容视图
   final Widget child;
@@ -71,8 +71,8 @@ class PullToRefreshWidget extends StatefulWidget {
   final double headerTriggerRate;
 
   const PullToRefreshWidget(
-      {Key key,
-        @required this.child,
+      {Key? key,
+        required this.child,
         this.headerTriggerRate = 1.0,
         this.onRefresh,
         this.onLoadMore,
@@ -105,17 +105,17 @@ class _PullRefreshState extends State<PullToRefreshWidget> {
   _RefreshStatus _headerState = _RefreshStatus.reset;
 
   /// 是否正在加载更多，防止来回滑动导致接口调用多次的问题
-  bool _isLoadingMore;
+  bool? _isLoadingMore;
 
   /// scrollview的滑动监听者
-  ScrollController _scrollController;
+  late ScrollController _scrollController;
 
   @override
   void initState() {
     _scrollController = new ScrollController();
     _scrollController.addListener(() {
       if (widget.scrollNotify != null) {
-        widget.scrollNotify(_scrollController.position.pixels);
+        widget.scrollNotify!(_scrollController.position.pixels);
       }
       if (!widget.isLoadMoreEnable) {
         return;
@@ -130,9 +130,11 @@ class _PullRefreshState extends State<PullToRefreshWidget> {
         }
         if (widget.onLoadMore != null) {
           _isLoadingMore = true;
-          widget.onLoadMore().whenComplete(() {
-            _isLoadingMore = false;
-          });
+          if (widget.onLoadMore != null) {
+            widget.onLoadMore!().whenComplete(() {
+              _isLoadingMore = false;
+            });
+          }
         }
       }
     });
@@ -140,7 +142,7 @@ class _PullRefreshState extends State<PullToRefreshWidget> {
     WidgetsBinding.instance.addPostFrameCallback((duration) {
       setState(() {
         if (widget.isRefreshEnable && _headerKey.currentContext != null) {
-          _headerHeight = _headerKey.currentContext.size.height;
+          _headerHeight = _headerKey.currentContext!.size!.height;
           print("_headerHeight = " + _headerHeight.toString());
           _maxDistance = widget.headerTriggerRate * _headerHeight;
           print("_maxDistance = " + _maxDistance.toString());
@@ -238,7 +240,7 @@ class _PullRefreshState extends State<PullToRefreshWidget> {
       _headerState = _RefreshStatus.refreshing;
       callback.refreshing();
 
-      final Future<void> refreshResult = widget.onRefresh();
+      final Future<void> refreshResult = widget.onRefresh!();
       if (refreshResult == null) {
         return false;
       }
@@ -257,11 +259,11 @@ class _PullRefreshState extends State<PullToRefreshWidget> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> children = new List();
+    List<Widget> children = <Widget>[];
     if (widget.isRefreshEnable) {
       Widget header = widget.headerBuilder != null
           ? new ProxyIndicatorWidget(
-        builder: widget.headerBuilder,
+        builder: widget.headerBuilder!,
         key: _headerKey,
         height: _headerHeight,
       )
@@ -280,11 +282,11 @@ class _PullRefreshState extends State<PullToRefreshWidget> {
     }
 
     if (widget.isLoadMoreEnable && widget.footerBuilder != null) {
-      children.add(SliverToBoxAdapter(child: widget.footerBuilder(context)));
+      children.add(SliverToBoxAdapter(child: widget.footerBuilder!(context)));
     }
 
     if (!widget.isLoadMoreEnable && widget.noMoreBuilder != null) {
-      children.add(SliverToBoxAdapter(child: widget.noMoreBuilder(context)));
+      children.add(SliverToBoxAdapter(child: widget.noMoreBuilder!(context)));
     }
 
     return new LayoutBuilder(builder: (context, cons) {
@@ -313,11 +315,11 @@ class _PullRefreshState extends State<PullToRefreshWidget> {
 
 ///copy from BouncingScrollPhysics ,用来控制下拉刷新的滑动特性
 class _PullToRefreshScrollPhysics extends ScrollPhysics {
-  const _PullToRefreshScrollPhysics({ScrollPhysics parent})
+  const _PullToRefreshScrollPhysics({ScrollPhysics? parent})
       : super(parent: parent);
 
   @override
-  _PullToRefreshScrollPhysics applyTo(ScrollPhysics ancestor) {
+  _PullToRefreshScrollPhysics applyTo(ScrollPhysics? ancestor) {
     return _PullToRefreshScrollPhysics(parent: buildParent(ancestor));
   }
 
@@ -379,7 +381,7 @@ class _PullToRefreshScrollPhysics extends ScrollPhysics {
   }
 
   @override
-  Simulation createBallisticSimulation(
+  Simulation? createBallisticSimulation(
       ScrollMetrics position, double velocity) {
     final Tolerance tolerance = this.tolerance;
     // 松手回弹,滑动惯性

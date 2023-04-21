@@ -4,7 +4,7 @@ import 'package:flutterstudy/utils/ui_utils.dart';
 import 'package:flutterstudy/widget/title_bar.dart';
 
 class AllService3Page extends StatefulWidget {
-  AllService3Page({Key key}) : super(key: key);
+  AllService3Page({Key? key}) : super(key: key);
 
   @override
   _AllServicePageState createState() => new _AllServicePageState();
@@ -12,7 +12,7 @@ class AllService3Page extends StatefulWidget {
 
 class _AllServicePageState extends State<AllService3Page>
     with TickerProviderStateMixin {
-  TabController _tabController;
+  late TabController _tabController;
   bool isShowHeaderTab = false;
   ScrollController _scrollController = new ScrollController();
   int dataCount = 4;
@@ -122,6 +122,10 @@ class _AllServicePageState extends State<AllService3Page>
                               )
                           );
                       }
+                      return Container(
+                        height: getExpandHeight(context, dataCount),
+                        color: Color(0xFFFFFFFF),
+                      );
                     },
                   ),
                   Visibility(

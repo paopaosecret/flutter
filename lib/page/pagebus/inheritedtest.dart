@@ -13,14 +13,14 @@ class CountContainer extends InheritedWidget {
   ///注：1.12.1之前的写法，之后被废弃
 //  static CountContainer of(BuildContext context) => context.inheritFromWidgetOfExactType(CountContainer) as CountContainer;
   ///注：1.12.1之后的写法子树中的组件通过CountContainer.of(context)访问共享状态。
-  static CountContainer of(BuildContext context) =>
+  static CountContainer? of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<CountContainer>();
 
   ///2、定义共享的数据
   final int count;
 
   ///3、创建构造方法,  ****注意构造方法初始化调用父类的构造方法 super****
-  CountContainer(this.count, {Key key, Widget child})
+  CountContainer(this.count, {Key? key, required Widget child})
       : super(key: key, child: child);
 
   ///4、会在Flutter判断InheritedWidget是否需要重建，从而通知下层观察者组件更新数据时被调用到。
@@ -81,12 +81,12 @@ class Counter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ///获取InheritedWidget节点
-    CountContainer state = CountContainer.of(context);
+    CountContainer? state = CountContainer.of(context);
 
     return Scaffold(
       appBar: AppBar(title: Text("InheritedWidget demo")),
       body: Text(
-        'You have pushed the button this many times: ${state.count}',
+        'You have pushed the button this many times: ${state?.count}',
       ),
     );
   }
@@ -94,7 +94,7 @@ class Counter extends StatelessWidget {
 
 ///part 2：InheritedWidget 仅提供了数据读的能力，如果我们想要修改它的数据，则需要把它和 StatefulWidget 中的 State 配套使用。
 class Count2Container extends InheritedWidget {
-  static Count2Container of(BuildContext context) =>
+  static Count2Container? of(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<Count2Container>();
 
   ///通过StatefulWidget中的state，修改其存储的数据
@@ -104,10 +104,10 @@ class Count2Container extends InheritedWidget {
 
   ///创建构造器
   Count2Container(
-      {Key key,
-      @required this.state,
-      @required this.increment,
-      @required Widget child})
+      {Key? key,
+      required this.state,
+      required this.increment,
+      required Widget child})
       : super(key: key, child: child);
 
   @override
@@ -149,15 +149,16 @@ class Counter2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ///获取InheritedWidget节点
-    Count2Container state = Count2Container.of(context);
+    Count2Container? state = Count2Container.of(context);
 
     return Scaffold(
       appBar: AppBar(title: Text("InheritedWidget demo")),
       body: Text(
-        'You have pushed the button this many times: ${state.state.count}', //数据的读取
+        'You have pushed the button this many times: ${state?.state.count}',
+        //数据的读取
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: state.state
+          onPressed: state?.state
               ._incrementCount), //数据的修改，修改的逻辑在顶层的state中,限制性，子widget中不能传参修改
     );
   }

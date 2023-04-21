@@ -137,7 +137,7 @@ class _CalendarState extends State<Calendar> {
   }
 
   List<Widget> _buildGridChildren(BuildContext context) {
-    final List list = List<Widget>();
+    final List<Widget> list = <Widget>[];
     for (int x = 1; x <= 7; x++) {
       list.add(Center(
           child: Text(
@@ -178,7 +178,7 @@ class _CalendarState extends State<Calendar> {
   }
 
   List<Widget> _buildDays(BuildContext context) {
-    List<Widget> list = List<Widget>();
+    final List<Widget> list = <Widget>[];
     for (int i = 1; i < maxDay + fristWeek; i++) {
       if (i < fristWeek) {
         list.add(Center(child: Text(" ")));

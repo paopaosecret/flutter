@@ -9,8 +9,8 @@ class CustomDialog{
       String contentText,           ///内容文本
       String leftButton,            ///底部左边按钮文本
       String rightButton,           ///底部右边按钮文本
-      Function leftListener,        ///底部左边按钮事件
-      Function rightListener) {     ///底部右边按钮事件
+      VoidCallback? leftListener,        ///底部左边按钮事件
+      VoidCallback? rightListener) {     ///底部右边按钮事件
 
     ///标题，对话框标题
     var title = Row(

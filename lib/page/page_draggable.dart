@@ -5,17 +5,15 @@ import 'package:flutterstudy/utils/ui_utils.dart';
 
 ///用于展示Demo的界面，其中的MaterialApp、ThemeData、AppBar都是不必要的，只是稍微美观一点。
 class DraggablePage extends StatelessWidget {
-  List<ItemBean> dataList;
+  late List<ItemBean> dataList;
   initDataList(){
     if(dataList == null){
-      dataList = new List();
+      dataList = <ItemBean>[];
     }else{
       dataList.clear();
     }
     for(int i = 0; i<  5; i++){
-      ItemBean itemBean = new ItemBean();
-      itemBean.id = i;
-      itemBean.name = "name${i}";
+      ItemBean itemBean = new ItemBean(id: i, name: "name${i}");
       dataList.add(itemBean);
     }
   }
@@ -41,7 +39,7 @@ class DraggablePage extends StatelessWidget {
 //List<ItemBean> list = new List();
 
 class GridViewPage3 extends StatefulWidget {
-  List<ItemBean> dataList = null;
+  late List<ItemBean> dataList;
   GridViewPage3(List<ItemBean> dataList){
     this.dataList = dataList;
   }
@@ -83,7 +81,7 @@ class _GridViewPage3State extends State<GridViewPage3> {
 
   //生成widget列表
   List<Widget> _buildGridChildren(BuildContext context) {
-    final List list = List<Widget>();
+    final List<Widget> list = <Widget>[];
     for (int x = 0; x < widget.dataList.length; x++) {
       list.add(_buildItemWidget(context, x));
     }
