@@ -35,7 +35,7 @@ class NewPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(args.toString()),
         leading: new IconButton(
-            icon:  Image.asset("images/title_back.png",width:30,height:30),
+            icon:  Image.asset("assets/images/icon_title_back.png",width:30,height:30),
             onPressed: () {
               //导航到新路由
               Navigator.pop( context, "我是返回值1");
@@ -53,7 +53,7 @@ class NewPage extends StatelessWidget {
                 child: Marquee(3, _listItemBuilder)
               ),
               new IconButton(
-                icon:  Image.asset("images/title_back.png",width:30,height:30),
+                icon:  Image.asset("assets/images/icon_title_back.png",width:30,height:30),
                 onPressed: () {
                   //导航到新路由
                   Navigator.of(context).pushNamed("ui_test");

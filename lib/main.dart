@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterstudy/eventbus/event_bus.dart';
 import 'package:flutterstudy/eventbus/event_constant.dart';
 import 'package:flutterstudy/page/calendar.dart';
+import 'package:flutterstudy/page/flutter_floating.dart';
 import 'package:flutterstudy/page/fragment_me.dart';
 import 'package:flutterstudy/page/game/scroll_title_page.dart';
 import 'package:flutterstudy/page/game/shangji_home_page.dart';
@@ -23,6 +24,7 @@ import 'package:flutterstudy/page/scrollable/single_child_scrollview.dart';
 import 'package:flutterstudy/page/transform_page.dart';
 import 'package:flutterstudy/widget/title_bar.dart';
 import 'package:flutterstudy/widget/toast.dart';
+import 'package:system_alert_window/system_alert_window.dart';
 
 import 'page/my_store.dart';
 import 'page/new_page.dart';
@@ -74,6 +76,7 @@ class _MyAppState extends State<MyApp> {
 
       //注册路由表
       routes: {
+        "flutter_floating": (context) => new FlutterFloating(),
         "new_page": (context) => new NewPage(),
         "ui_test": (context) => new UITest(),
         "my_store": (context) => new MyStore(),
@@ -130,6 +133,7 @@ class _MyAppState extends State<MyApp> {
                             height: 50,
                             color: Color(0xFFF2F2F2),
                             child: Text("测试同步"))),
+                    buildItem(context, "悬浮窗测试", "flutter_floating", null),
                     buildItem(context, "生命周期测试", "page_liftcycle", null),
                     buildItem(context, "我的实体店", "my_store", null),
                     buildItem(context, "福利商城", "fragment_me", null),

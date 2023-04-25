@@ -75,7 +75,7 @@ class UITest extends StatelessWidget{
                         ),
                       ),
                       child: new IconButton(
-                          icon:  Image.asset("images/title_back.png",width:30,height:30),
+                          icon:  Image.asset("assets/images/icon_title_back.png",width:30,height:30),
                           onPressed: () {
                             List<ItemBean> list = <ItemBean>[];
                             for(int i = 0; i < 10; i++){

@@ -11,7 +11,7 @@ import 'package:flutterstudy/utils/ui_utils.dart';
 class CustomNotification extends Notification {
   CustomNotification(this.msg);
 
-  final String msg;
+  String msg;
 }
 
 ///2、抽离出一个子Widget用来发送通知

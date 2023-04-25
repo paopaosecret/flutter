@@ -22,4 +22,24 @@ class MessageChannel{
     }
     return "show return null";
   }
+
+
+  static Future<String> showFloat(int platformViewId) async{
+    try {
+      final int result = await methodChannel.invokeMethod('showFloat', {"platformViewId" : platformViewId});
+      return "result:${result}";
+    } on PlatformException {
+      return "PlatformException";
+    }
+  }
+
+  static Future<String> hideFloat() async{
+    try {
+      final int result = await methodChannel.invokeMethod('hideFloat', {});
+      return "result:${result}";
+    } on PlatformException {
+      return "PlatformException";
+    }
+    return "show return null";
+  }
 }

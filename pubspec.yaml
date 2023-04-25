@@ -29,6 +29,8 @@ dependencies:
 
   # 腾讯云IM chat ui组件
   tencent_cloud_chat_uikit: 2.0.0-preview.6
+
+  system_alert_window: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -52,16 +54,16 @@ flutter:
   assets:
   #批量定义
     - assets/images/
-    - assets/images/icon_pulltorefresh_arrow.png
   #单个定义如下：
-  #  - images/title_back.png
-  #  - images/icon_shop_info_edit.png
-  #  - images/icon_shop_info_delete.png
-  #  - images/icon_bg_credit_novip.png
-  #  - images/icon_bg_credit_vip.png
-  #  - images/iv_boy_user.png
-  #  - images/icon_credit_setting.png
-  #  - images/icon_bg_ranking.png
+    - assets/icon_pulltorefresh_arrow.png
+    - assets/images/icon_title_back.png
+    - assets/images/icon_shop_info_edit.png
+    - assets/images/icon_shop_info_delete.png
+    - assets/images/icon_bg_credit_novip.png
+    - assets/images/icon_bg_credit_vip.png
+    - assets/images/iv_boy_user.png
+    - assets/images/icon_credit_setting.png
+    - assets/images/icon_bg_ranking.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

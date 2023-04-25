@@ -952,6 +952,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.0"
+  system_alert_window:
+    dependency: "direct main"
+    description:
+      name: system_alert_window
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.2.1"
   system_info2:
     dependency: transitive
     description:

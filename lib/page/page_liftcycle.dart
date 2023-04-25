@@ -16,7 +16,7 @@ class LiftCyclePage extends StatefulWidget{
   }
 }
 
-class _LifeCycleState extends State<LiftCyclePage>{
+class _LifeCycleState extends State<LiftCyclePage> with WidgetsBindingObserver{
   int count = 0;
 
   @override
@@ -56,6 +56,11 @@ class _LifeCycleState extends State<LiftCyclePage>{
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print("didChangeAppLifecycleState state:${state}");
+  }
+
+  @override
   void setState(fn) {
     print('状态刷新 setState');
     super.setState(fn);
@@ -63,6 +68,7 @@ class _LifeCycleState extends State<LiftCyclePage>{
 
   @override
   Widget build(BuildContext context) {
+    print('构建视图 build');
     // TODO: implement build
     return Scaffold(
       appBar: TitleBar().titleBar(context, '测试生命周期',),
