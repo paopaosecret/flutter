@@ -22,6 +22,7 @@ import 'package:flutterstudy/page/scrollable/custom_scrollview.dart';
 import 'package:flutterstudy/page/scrollable/notificationlistener.dart';
 import 'package:flutterstudy/page/scrollable/single_child_scrollview.dart';
 import 'package:flutterstudy/page/transform_page.dart';
+import 'package:flutterstudy/platformview/PlatformTextWidget.dart';
 import 'package:flutterstudy/widget/title_bar.dart';
 import 'package:flutterstudy/widget/toast.dart';
 import 'package:system_alert_window/system_alert_window.dart';
@@ -76,6 +77,7 @@ class _MyAppState extends State<MyApp> {
 
       //注册路由表
       routes: {
+        "platform_view": (context) => new PlatformTextWidget(text: "hello world!"),
         "flutter_floating": (context) => new FlutterFloating(),
         "new_page": (context) => new NewPage(),
         "ui_test": (context) => new UITest(),
@@ -133,6 +135,7 @@ class _MyAppState extends State<MyApp> {
                             height: 50,
                             color: Color(0xFFF2F2F2),
                             child: Text("测试同步"))),
+                    buildItem(context, "PlatformView测试", "platform_view", null),
                     buildItem(context, "悬浮窗测试", "flutter_floating", null),
                     buildItem(context, "生命周期测试", "page_liftcycle", null),
                     buildItem(context, "我的实体店", "my_store", null),

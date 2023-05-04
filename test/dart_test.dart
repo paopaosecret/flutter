@@ -8,7 +8,7 @@ void main() {
 //  printInteger(i);  ///调用一个方法
 //  printStr("hello dart");
 //  testNum(16, 3);
-//  testStr();
+ testStr();
 //  testIsAs();
 //  testObject();
 //  testDynamic();
@@ -24,7 +24,7 @@ void main() {
 
 //  testWait();
 //   testFuhao();
-  getMonthInitWeek(2020,10);
+//   getMonthInitWeek(2020,10);
 }
 int getMonthInitWeek(int year, int month){
   var d =new DateTime(year, month, 1);
