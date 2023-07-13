@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutterstudy/widget/marquee.dart';
 import 'package:flutterstudy/widget/toast.dart';
 ///首页-我的页面
@@ -28,7 +27,6 @@ class _State extends State<FragmentMe> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context);
     return Scaffold(
       backgroundColor: Color(0xFFF3F3F3),
       body: new RefreshIndicator(

@@ -16,6 +16,7 @@
 .idea/
 build
 .drat_tool
+*.lock
 
 
 

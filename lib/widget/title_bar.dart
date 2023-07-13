@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TitleBar {
 
@@ -11,7 +12,6 @@ class TitleBar {
     return PreferredSize(
       preferredSize: Size(double.infinity, 48),
       child: AppBar(
-        brightness: Brightness.light,
         elevation: 0,
         title: _title(title),
         centerTitle: true,
@@ -37,7 +37,7 @@ class TitleBar {
               },
             ),
           ),
-        ],
+        ], systemOverlayStyle: SystemUiOverlayStyle.dark,
 //
       ),
     );

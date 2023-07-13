@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-class PlatformTextWidget extends StatelessWidget {
-  PlatformTextWidget({required this.text});
+class TUIVideoView extends StatelessWidget {
+  TUIVideoView({required this.text});
 
   final String text;
 

@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
 
       //注册路由表
       routes: {
-        "platform_view": (context) => new PlatformTextWidget(text: "hello world!"),
+        "platform_view": (context) => new TUIVideoView(text: "hello world!"),
         "flutter_floating": (context) => new FlutterFloating(),
         "new_page": (context) => new NewPage(),
         "ui_test": (context) => new UITest(),
