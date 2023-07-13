@@ -23,6 +23,7 @@ import 'package:flutterstudy/page/scrollable/notificationlistener.dart';
 import 'package:flutterstudy/page/scrollable/single_child_scrollview.dart';
 import 'package:flutterstudy/page/transform_page.dart';
 import 'package:flutterstudy/platformview/PlatformTextWidget.dart';
+import 'package:flutterstudy/testkey/key_test.dart';
 import 'package:flutterstudy/widget/title_bar.dart';
 import 'package:flutterstudy/widget/toast.dart';
 import 'package:system_alert_window/system_alert_window.dart';
@@ -102,6 +103,7 @@ class _MyAppState extends State<MyApp> {
         "page_transform": (ctx) => new TransformPage(),
         "page_scroll_title": (ctx) => new ScrollTitlePage(),
         "page_shangji_home": (ctx) => new ShangjiHomePage(),
+        "key_test": (ctx) => new KeyDemo(),
       },
       home: Builder(
         builder: (context) => Scaffold(
@@ -135,6 +137,7 @@ class _MyAppState extends State<MyApp> {
                             height: 50,
                             color: Color(0xFFF2F2F2),
                             child: Text("测试同步"))),
+                    buildItem(context, "Key测试", "key_test", null),
                     buildItem(context, "PlatformView测试", "platform_view", null),
                     buildItem(context, "悬浮窗测试", "flutter_floating", null),
                     buildItem(context, "生命周期测试", "page_liftcycle", null),
