@@ -10,7 +10,7 @@ class ScrollTitlePage extends StatefulWidget {
 
 class _ScrollTitlePageState extends State<ScrollTitlePage>
     with SingleTickerProviderStateMixin {
-  late List<ItemBean> dataList;
+  List<ItemBean> dataList = [];
   double maxTop = 0.0;
   double currentTop = 0.0;
   bool isFrist = true;
@@ -22,11 +22,7 @@ class _ScrollTitlePageState extends State<ScrollTitlePage>
   late ScrollController scrollController;
 
   initDataList() {
-    if (dataList == null) {
-      dataList = [];
-    } else {
-      dataList.clear();
-    }
+    dataList.clear();
     for (int i = 0; i < 5; i++) {
       ItemBean itemBean = new ItemBean(id:i, name: "name${i}");
       dataList.add(itemBean);

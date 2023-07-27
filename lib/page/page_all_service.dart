@@ -11,17 +11,13 @@ class AllServicePage extends StatefulWidget {
 class _AllServiceState extends State<AllServicePage> {
   bool isEdit = false;
   bool isDown = false;
-  late List<ItemBean> dataList;
+  List<ItemBean> dataList = <ItemBean>[];
   double maxTop = 0.0;
   double currentTop = 0.0;
   bool isFrist = true;
 
   initDataList() {
-    if (dataList == null) {
-      dataList = <ItemBean>[];
-    } else {
-      dataList.clear();
-    }
+    dataList.clear();
     for (int i = 0; i < 5; i++) {
       ItemBean itemBean = ItemBean(id:i, name:"name${i}");
       dataList.add(itemBean);
@@ -30,7 +26,6 @@ class _AllServiceState extends State<AllServicePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     initDataList();
   }

@@ -5,23 +5,13 @@ import 'package:flutterstudy/utils/ui_utils.dart';
 
 ///用于展示Demo的界面，其中的MaterialApp、ThemeData、AppBar都是不必要的，只是稍微美观一点。
 class DraggablePage extends StatelessWidget {
-  late List<ItemBean> dataList;
-  initDataList(){
-    if(dataList == null){
-      dataList = <ItemBean>[];
-    }else{
-      dataList.clear();
-    }
+  @override
+  Widget build(BuildContext context) {
+    List<ItemBean> dataList = <ItemBean>[];
     for(int i = 0; i<  5; i++){
       ItemBean itemBean = new ItemBean(id: i, name: "name${i}");
       dataList.add(itemBean);
     }
-  }
-
-
-  @override
-  Widget build(BuildContext context) {
-    initDataList();
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
