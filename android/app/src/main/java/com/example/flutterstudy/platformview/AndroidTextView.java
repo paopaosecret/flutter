@@ -34,7 +34,7 @@ public class AndroidTextView implements PlatformView {
 
         mAndroidTextView = new TextView(context);
         mAndroidTextView.setGravity(Gravity.CENTER);
-        mAndroidTextView.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+
         if(mParams != null) {
             mParams.containsKey("text");
             mAndroidTextView.setText((String)mParams.get("text"));

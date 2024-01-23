@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutterstudy/eventbus/event_bus.dart';
@@ -8,6 +9,7 @@ import 'package:flutterstudy/page/flutter_floating.dart';
 import 'package:flutterstudy/page/fragment_me.dart';
 import 'package:flutterstudy/page/game/scroll_title_page.dart';
 import 'package:flutterstudy/page/game/shangji_home_page.dart';
+import 'package:flutterstudy/page/groupcallvideo/group_call_page.dart';
 import 'package:flutterstudy/page/page_all_service.dart';
 import 'package:flutterstudy/page/page_animation.dart';
 import 'package:flutterstudy/page/page_draggable.dart';
@@ -26,11 +28,12 @@ import 'package:flutterstudy/platformview/PlatformTextWidget.dart';
 import 'package:flutterstudy/testkey/key_test.dart';
 import 'package:flutterstudy/widget/title_bar.dart';
 import 'package:flutterstudy/widget/toast.dart';
-import 'package:system_alert_window/system_alert_window.dart';
+
 
 import 'page/my_store.dart';
 import 'page/new_page.dart';
 import 'page/page_all_service2.dart';
+import 'package:http/http.dart' as http;
 
 TextEditingController _describleController = new TextEditingController();
 TextEditingController _contractController = new TextEditingController();
@@ -104,6 +107,7 @@ class _MyAppState extends State<MyApp> {
         "page_scroll_title": (ctx) => new ScrollTitlePage(),
         "page_shangji_home": (ctx) => new ShangjiHomePage(),
         "key_test": (ctx) => new KeyDemo(),
+        "group_call_page": (ctx) => new GroupCallPage(),
       },
       home: Builder(
         builder: (context) => Scaffold(
@@ -119,7 +123,19 @@ class _MyAppState extends State<MyApp> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     GestureDetector(
-                        onTap: () {
+                        onTap: () async {
+                          // 1.创建Client
+                          final client = http.Client();
+                          // 2.构建uri
+                          final url = Uri.parse("http://123.207.32.32:8000/api/v1/recommend");
+                          // 3.发送请求
+                          final response = await client.get(url);
+                          // 4.获取结果
+                          if (response.statusCode == HttpStatus.ok) {
+                            print(response.body);
+                          } else {
+                            print(response.statusCode);
+                          }
                           Future.delayed(Duration(seconds: 1)).then((e) =>
                               throw StateError('This is a Dart exception 异步.'));
                         },
@@ -137,6 +153,8 @@ class _MyAppState extends State<MyApp> {
                             height: 50,
                             color: Color(0xFFF2F2F2),
                             child: Text("测试同步"))),
+                    buildItem(context, "群通话页面", "group_call_page", null),
+                    buildItem(context, "动画页面", "animation_page", null),
                     buildItem(context, "Key测试", "key_test", null),
                     buildItem(context, "PlatformView测试", "platform_view", null),
                     buildItem(context, "悬浮窗测试", "flutter_floating", null),
@@ -148,7 +166,6 @@ class _MyAppState extends State<MyApp> {
                     buildItem(context, "布局测试", "new_page", "布局测试页面参数"),
                     buildItem(context, "问题反馈页面", "problem_back", null),
                     buildItem(context, "商机页面", "shangji_page", null),
-                    buildItem(context, "动画页面", "animation_page", null),
                     buildItem(
                         context, "inherited测试", "inherited_test_page", null),
                     buildItem(

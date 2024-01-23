@@ -1,14 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 
 class TUIVideoView extends StatelessWidget {
   TUIVideoView({required this.text});
 
   final String text;
+  final tapGestureRecognizer = TapGestureRecognizer();
 
   @override
   Widget build(BuildContext context) {
+
     // 根据运行平台判断执行代码
     if (defaultTargetPlatform == TargetPlatform.android) {
       print("AndroidTextView flutter build AndroidView");
@@ -23,6 +26,18 @@ class TUIVideoView extends StatelessWidget {
         onPlatformViewCreated: (value){
           print("AndroidTextView onPlatformViewCreated:${value}");
         },
+        gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>[
+          Factory<TapGestureRecognizer>(() {
+            tapGestureRecognizer.onTapDown = (details) {
+              print("vincepzhang: gestureRecognizers onTapDown");
+            };
+            tapGestureRecognizer.onTap = () {
+              print("vincepzhang: gestureRecognizers onTap");
+            };
+            return tapGestureRecognizer;
+          }),
+
+        ].toSet(),
       );
     } else if (defaultTargetPlatform == TargetPlatform.iOS) {
       return UiKitView(

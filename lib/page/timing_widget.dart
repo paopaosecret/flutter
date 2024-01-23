@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:sprintf/sprintf.dart';
+// import 'package:sprintf/sprintf.dart';
 
 class TimingWidget extends StatelessWidget {
   static StreamController<int> _streamController = StreamController<int>();
@@ -34,7 +34,7 @@ class TimingWidget extends StatelessWidget {
       count++;
       int minute = count~/60;
       int second = count%60;
-      print(sprintf('%02d:%02d', [minute, second]));
+      // print(sprintf('%02d:%02d', [minute, second]));
       _streamController.sink.add(count);
     });
   }

@@ -8,7 +8,7 @@ void main() {
 //  printInteger(i);  ///调用一个方法
 //  printStr("hello dart");
 //  testNum(16, 3);
- testStr();
+//  testStr();
 //  testIsAs();
 //  testObject();
 //  testDynamic();
@@ -25,6 +25,7 @@ void main() {
 //  testWait();
 //   testFuhao();
 //   getMonthInitWeek(2020,10);
+  testMixin();
 }
 int getMonthInitWeek(int year, int month){
   var d =new DateTime(year, month, 1);
@@ -517,3 +518,22 @@ testAsync(){
     }
   }
 }
+
+void testMixin() {
+  // MyMixin obj = MyMixin(); //在 Dart 中，你不能创建 mixin 类的实例。Mixin 类只是为了在其他类中重用代码而存在的。
+  MyClass obj = MyClass();
+  obj.myMethod();
+}
+
+/// mixin 类是一种特殊的类，它可以将一组方法和属性注入到其他类中。这允许你在不继承单个类的情况下，将多个类的功能组合在一起。
+/// 这对于在多个不相关的类之间共享相同的代码或功能非常有用。
+mixin MyMixin {
+  void myMethod() {
+    print('This is a method from MyMixin.');
+  }
+}
+
+class MyClass with MyMixin {
+  // Your class implementation
+}
+
